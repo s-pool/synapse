@@ -6,6 +6,7 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 * react
 * react-scroll
 * react-router-dom
+* react-meta-tags
 * slash
 * uuid
 * devices.css
