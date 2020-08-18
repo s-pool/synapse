@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /demo/
+Sitemap: https://s-pool.github.io/synapse/sitemap.xml
