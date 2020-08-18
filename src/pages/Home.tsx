@@ -1,5 +1,6 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
+import MetaTags from 'react-meta-tags'
 
 import demo from '../assets/capture/tour/demo.gif'
 import { Logo } from '../assets/static/synapse_logo'
@@ -11,25 +12,30 @@ const Home = () => {
   const theme = useTheme()
 
   return (
-    <PR
-      appbar={{
-        logo: <Logo/>,
-        fontcolor: theme.palette.primary.main,
-        tools: <SynapseAppBar/>
-      }}
-      contents={
-        [
-          {
-            subtitle: 'つなぐ、見える、伝わる。',
-            body: `データ分析プラットフォーム
+    <React.Fragment>
+      <MetaTags>
+        <title>Synapse</title>
+        <meta name='description' content='つなぐ、見える、伝わる。データ分析プラットフォーム「Synapse」' />
+      </MetaTags>
+      <PR
+        appbar={{
+          logo: <Logo/>,
+          fontcolor: theme.palette.primary.main,
+          tools: <SynapseAppBar/>
+        }}
+        contents={
+          [
+            {
+              subtitle: 'つなぐ、見える、伝わる。',
+              body: `データ分析プラットフォーム
             「Synapse」
             `,
-            image: (
-              <Mockup>
-                <img src={demo} alt='' height='auto' width='100%'/>
-              </Mockup>
-            )
-          }
+              image: (
+                <Mockup>
+                  <img src={demo} alt='' height='auto' width='100%'/>
+                </Mockup>
+              )
+            }
           /*
           {
             subtitle: 'データをつなぐ、人とつなぐ。',
@@ -47,9 +53,10 @@ const Home = () => {
             image: analytics
           }
           */
-        ]
-      }
-    />
+          ]
+        }
+      />
+    </React.Fragment>
   )
 }
 
