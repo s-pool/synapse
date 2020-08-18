@@ -43,7 +43,7 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
     <SAppBar position='relative' {...props}>
       <Toolbar>
         <Wrapper>
-          <Link to='/'>
+          <Link to='/' aria-label='root'>
             <LogoWrapper color={props.fontcolor}>
               {props.logo}
             </LogoWrapper>

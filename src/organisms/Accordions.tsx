@@ -65,10 +65,8 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
           <Accordion expanded={expanded === item.uuid} onChange={handleChange(item.uuid)} key={item.uuid}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
-              aria-controls='panel1bh-content'
-              id='panel1bh-header'
             >
-              <Typography variant='subtitle1'>
+              <Typography variant='subtitle1' component='h6'>
                 {item.summary}
               </Typography>
             </AccordionSummary>

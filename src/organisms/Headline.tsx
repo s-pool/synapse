@@ -32,7 +32,7 @@ const Caption:React.FC = ({ children, ...props }) => {
   )
   const classes = useStyles()
   return (
-    <Typography className={classes.typo} variant='h6' align='center' {...props}>
+    <Typography className={classes.typo} variant='h6' align='center' {...props} component='h2'>
       {children}
     </Typography>
   )

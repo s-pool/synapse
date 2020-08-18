@@ -4,7 +4,8 @@ import React from 'react'
 
 type SlideTitleProps = TypographyProps & {
   shadow?: boolean,
-  contrast?: boolean
+  contrast?: boolean,
+  component?: React.ElementType
 }
 
 type ColumnPageProps = SlideTitleProps & {
@@ -26,7 +27,7 @@ const ColumnPage:React.FC<ColumnPageProps> = ({ children, text, ...props }) => {
   return (
     <Container maxWidth='md'>
       <InnerContainer>
-        <SlideTitle variant='h4' align='center' {...props}>
+        <SlideTitle variant='h4' align='center' {...props} component='h2'>
           {text}
         </SlideTitle>
         {children}
