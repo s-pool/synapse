@@ -1,5 +1,0 @@
-export * from './Demo'
-export * from './FAQEC'
-export * from './Home'
-export * from './Router'
-export * from './SynapseAppBar'
