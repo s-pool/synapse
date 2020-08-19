@@ -1,7 +1,7 @@
 {
-  "name": "single-scroll-page-template",
+  "name": "synapse-pages",
   "version": "1.0.0",
-  "description": "Template repository for React project",
+  "description": "synapse web site",
   "license": "MIT",
   "repository": {
     "type": "git",
