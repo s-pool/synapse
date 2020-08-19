@@ -1,0 +1,1 @@
+{"version":3,"sources":["wrap/organisms/LazyAccordions.tsx"],"names":[],"mappings":"sHAAA","file":"static/js/3.7eab8572.chunk.js","sourcesContent":["export { Accordions as default } from '../../organisms'\n"],"sourceRoot":""}
