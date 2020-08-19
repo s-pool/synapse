@@ -9,7 +9,9 @@ import { mainTheme as theme } from '../theme'
 
 const Wrapper = styled('div')({
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  width: '100%',
+  overflowX: 'hidden'
 })
 
 const ContentWrapper = styled('div')((props:{background:string}) => ({

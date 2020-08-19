@@ -31,7 +31,7 @@ const Home = () => {
             `,
               image: (
                 <Mockup>
-                  <video src={`${process.env.PUBLIC_URL}/assets/demo.mp4`} height='auto' width='100%' autoPlay loop/>
+                  <video src={`${process.env.PUBLIC_URL}/static/media/demo.mp4`} height='auto' width='100%' autoPlay loop/>
                 </Mockup>
               )
             }

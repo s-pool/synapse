@@ -7,6 +7,10 @@ import { Router as App } from './pages'
 import * as serviceWorker from './serviceWorker'
 import { mainTheme as theme } from './theme'
 
+if (process.env.NODE_ENV !== 'development') {
+  console.log = () => {}
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <StylesProvider injectFirst>

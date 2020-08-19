@@ -1,7 +1,8 @@
-import { Accordion, AccordionDetails, AccordionSummary, Icon, Typography } from '@material-ui/core'
+import { Accordion, AccordionDetails, AccordionSummary, Box, CircularProgress, Icon, Typography } from '@material-ui/core'
 import { styled, Theme } from '@material-ui/core/styles'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 import { isImage } from '../utils'
 
@@ -75,9 +76,20 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
                 item.details.map((p, i) => {
                   return (
                     isImage(p)
-                      ? <Image key={`${item.uuid}-fig-${i}`}>
-                        <img src={p} alt='' height='auto' width='90%'/>
-                      </Image>
+                      ? <LazyLoad
+                        once
+                        height={400}
+                        placeholder={
+                          <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
+                            <CircularProgress/>
+                          </Box>
+                        }
+                        debounce
+                      >
+                        <Image key={`${item.uuid}-fig-${i}`}>
+                          <img src={p} alt='' height='auto' width='90%'/>
+                        </Image>
+                      </LazyLoad>
                       : <BrTypography variant='body1' key={`${item.uuid}-body-${i}`}>
                         {p}
                       </BrTypography>

@@ -1,5 +1,5 @@
+export * from './Demo'
 export * from './FAQEC'
 export * from './Home'
-export * from './Dummy'
 export * from './Router'
 export * from './SynapseAppBar'

@@ -1,6 +1,8 @@
+
 import { Container, Grid, GridProps, Grow, Icon, Paper, Typography } from '@material-ui/core'
 import { styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 type SlideTitleProps = {
   shadow?: boolean,
@@ -80,17 +82,22 @@ const RowPage:React.FC<RowPageProps> = (props) => {
           </Grid>
         </Grid>
         <Grid item xs={right}>
-          <Grow in>
-            {
-              typeof props.image === 'string'
-                ? <Paper elevation={4}>
-                  <Image>
-                    <img src={props.image} alt='' height='auto' width='100%'/>
-                  </Image>
-                </Paper>
-                : <Image>{props.image}</Image>
-            }
-          </Grow>
+          <LazyLoad
+            once
+            debounce
+          >
+            <Grow in>
+              {
+                typeof props.image === 'string'
+                  ? <Paper elevation={4}>
+                    <Image>
+                      <img src={props.image} alt='' height='auto' width='100%'/>
+                    </Image>
+                  </Paper>
+                  : <Image>{props.image}</Image>
+              }
+            </Grow>
+          </LazyLoad>
         </Grid>
       </Grid>
     </StyledContainer>

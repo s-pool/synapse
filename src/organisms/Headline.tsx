@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 import { ColumnPage, ColumnPageProps, Fluid } from '../molecules'
 
@@ -102,20 +103,25 @@ const Headline:React.FC<HeadlineProps> = (props) => {
               console.log('Accordion map')
               return (
                 <Grid item xs={12} sm={6} md={4} key={`card-${card.uuid}`} >
-                  <Grow in timeout={300 * i} >
-                    <SCard>
-                      <CardActionArea onClick={() => props.onClickCard(card.uuid)}>
-                        <SCardMedia
-                          image={card.image || 'https://source.unsplash.com/random/' + i}
-                        />
-                        <SCardContent>
-                          <Caption>
-                            {card.subtitle}
-                          </Caption>
-                        </SCardContent>
-                      </CardActionArea>
-                    </SCard>
-                  </Grow>
+                  <LazyLoad
+                    once
+                    debounce
+                  >
+                    <Grow in timeout={300 * i} >
+                      <SCard>
+                        <CardActionArea onClick={() => props.onClickCard(card.uuid)}>
+                          <SCardMedia
+                            image={card.image || 'https://source.unsplash.com/random/' + i}
+                          />
+                          <SCardContent>
+                            <Caption>
+                              {card.subtitle}
+                            </Caption>
+                          </SCardContent>
+                        </CardActionArea>
+                      </SCard>
+                    </Grow>
+                  </LazyLoad>
                 </Grid>
               )
             })
