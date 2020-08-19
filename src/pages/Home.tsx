@@ -1,6 +1,5 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
-import MetaTags from 'react-meta-tags'
 
 import demo from '../assets/capture/demo/demo.mp4'
 import { Logo } from '../assets/static/synapse_logo'
@@ -11,31 +10,30 @@ import { SynapseAppBar } from '../pages'
 const Home = () => {
   const theme = useTheme()
 
+  React.useEffect(() => {
+    document.title = 'エスプール Synapse - データ分析プラットフォーム'
+  }, [])
+
   return (
-    <React.Fragment>
-      <MetaTags>
-        <title>Synapse</title>
-        <meta name='description' content='つなぐ、見える、伝わる。データ分析プラットフォーム「Synapse」' />
-      </MetaTags>
-      <PR
-        appbar={{
-          logo: <Logo/>,
-          fontcolor: theme.palette.primary.main,
-          tools: <SynapseAppBar/>
-        }}
-        contents={
-          [
-            {
-              subtitle: 'つなぐ、見える、伝わる。',
-              body: `データ分析プラットフォーム
+    <PR
+      appbar={{
+        logo: <Logo/>,
+        fontcolor: theme.palette.primary.main,
+        tools: <SynapseAppBar/>
+      }}
+      contents={
+        [
+          {
+            subtitle: 'つなぐ、見える、伝わる。',
+            body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: (
-                <Mockup>
-                  <video src={demo} height='auto' width='100%' autoPlay loop/>
-                </Mockup>
-              )
-            }
+            image: (
+              <Mockup>
+                <video src={demo} height='auto' width='100%' autoPlay loop/>
+              </Mockup>
+            )
+          }
           /*
           {
             subtitle: 'データをつなぐ、人とつなぐ。',
@@ -53,10 +51,9 @@ const Home = () => {
             image: analytics
           }
           */
-          ]
-        }
-      />
-    </React.Fragment>
+        ]
+      }
+    />
   )
 }
 
