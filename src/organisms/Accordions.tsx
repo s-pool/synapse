@@ -67,7 +67,7 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
             >
-              <Typography variant='subtitle1' component='h6'>
+              <Typography variant='subtitle1' component='span'>
                 {item.summary}
               </Typography>
             </AccordionSummary>
