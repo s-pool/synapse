@@ -4,6 +4,7 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 
 * material-ui
 * react
+* react-lazyload
 * react-scroll
 * react-router-dom
 * react-meta-tags

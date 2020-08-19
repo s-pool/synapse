@@ -1,17 +1,23 @@
 {
   "files": {
     "main.css": "./static/css/main.375d5dbe.chunk.css",
-    "main.js": "./static/js/main.942d480f.chunk.js",
-    "main.js.map": "./static/js/main.942d480f.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.ce128c13.js",
-    "runtime-main.js.map": "./static/js/runtime-main.ce128c13.js.map",
-    "static/js/2.6f6d267f.chunk.js": "./static/js/2.6f6d267f.chunk.js",
-    "static/js/2.6f6d267f.chunk.js.map": "./static/js/2.6f6d267f.chunk.js.map",
+    "main.js": "./static/js/main.1ba5e57e.chunk.js",
+    "main.js.map": "./static/js/main.1ba5e57e.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.aa0f7aa5.js",
+    "runtime-main.js.map": "./static/js/runtime-main.aa0f7aa5.js.map",
+    "static/js/2.dc4689c6.chunk.js": "./static/js/2.dc4689c6.chunk.js",
+    "static/js/2.dc4689c6.chunk.js.map": "./static/js/2.dc4689c6.chunk.js.map",
+    "static/js/3.d12d34d8.chunk.js": "./static/js/3.d12d34d8.chunk.js",
+    "static/js/3.d12d34d8.chunk.js.map": "./static/js/3.d12d34d8.chunk.js.map",
+    "static/js/4.da4a6d70.chunk.js": "./static/js/4.da4a6d70.chunk.js",
+    "static/js/4.da4a6d70.chunk.js.map": "./static/js/4.da4a6d70.chunk.js.map",
+    "static/js/5.84383856.chunk.js": "./static/js/5.84383856.chunk.js",
+    "static/js/5.84383856.chunk.js.map": "./static/js/5.84383856.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.2b1b72eb523a4a612542184cfa69a81e.js": "./precache-manifest.2b1b72eb523a4a612542184cfa69a81e.js",
+    "precache-manifest.fdf85f7bf36113c3424e9546fa2241b0.js": "./precache-manifest.fdf85f7bf36113c3424e9546fa2241b0.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.375d5dbe.chunk.css.map": "./static/css/main.375d5dbe.chunk.css.map",
-    "static/js/2.6f6d267f.chunk.js.LICENSE.txt": "./static/js/2.6f6d267f.chunk.js.LICENSE.txt",
+    "static/js/2.dc4689c6.chunk.js.LICENSE.txt": "./static/js/2.dc4689c6.chunk.js.LICENSE.txt",
     "static/media/bookmark.gif": "./static/media/bookmark.473fe1d7.gif",
     "static/media/clear.gif": "./static/media/clear.016c8e45.gif",
     "static/media/date.gif": "./static/media/date.db895eff.gif",
@@ -30,9 +36,9 @@
     "static/media/touch_app.svg": "./static/media/touch_app.ca88a25d.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce128c13.js",
-    "static/js/2.6f6d267f.chunk.js",
+    "static/js/runtime-main.aa0f7aa5.js",
+    "static/js/2.dc4689c6.chunk.js",
     "static/css/main.375d5dbe.chunk.css",
-    "static/js/main.942d480f.chunk.js"
+    "static/js/main.1ba5e57e.chunk.js"
   ]
 }
