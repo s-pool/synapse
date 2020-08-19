@@ -8,8 +8,6 @@
 *.ppt
 *.exe
 *.bin
-*.cmd
-*.bat
 *.zip
 *.7z
 *.pem
