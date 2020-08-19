@@ -2,6 +2,7 @@ import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
 import MetaTags from 'react-meta-tags'
 
+import demo from '../assets/capture/demo/demo.mp4'
 import { Logo } from '../assets/static/synapse_logo'
 import { Mockup } from '../molecules'
 import { PR } from '../organisms'
@@ -31,7 +32,7 @@ const Home = () => {
             `,
               image: (
                 <Mockup>
-                  <video src={`${process.env.PUBLIC_URL}/static/media/demo.mp4`} height='auto' width='100%' autoPlay loop/>
+                  <video src={demo} height='auto' width='100%' autoPlay loop/>
                 </Mockup>
               )
             }
