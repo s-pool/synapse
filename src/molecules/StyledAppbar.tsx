@@ -1,20 +1,19 @@
 import { AppBar, AppBarProps, Box, Toolbar } from '@material-ui/core'
-import { styled, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 type StyledAppBarProps = AppBarProps & {
   logo: React.ReactElement,
-  hidden?: boolean,
   fontcolor?: string,
   tools?: React.ReactElement
 }
 
-const SAppBar = styled(AppBar)(({ theme, ...props }: StyledAppBarProps & {theme: Theme}) => ({
-  position: theme.appbar.position,
-  background: theme.appbar.background,
-  boxShadow: theme.appbar.boxShadow,
-  color: props.fontcolor || theme.appbar.fontColor
+const Wrapper = styled('div')(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  flex: 1
 }))
 
 const LogoWrapper = styled('div')(({ theme, color }:{theme: Theme, color: StyledAppBarProps['fontcolor']}) => ({
@@ -29,18 +28,20 @@ const LogoWrapper = styled('div')(({ theme, color }:{theme: Theme, color: Styled
   ...theme.mixins.toolbar
 }))
 
-const Wrapper = styled('div')(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  flex: 1
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  root: (props: StyledAppBarProps) => ({
+    position: 'absolute',
+    background: theme.appbar.background,
+    boxShadow: theme.appbar.boxShadow,
+    color: props.fontcolor || theme.appbar.fontColor
+  })
 }))
 
 const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
   console.log('render Appbar')
-
+  const classes = useStyles(props)
   return (
-    <SAppBar position='relative' {...props}>
+    <AppBar className={classes.root} position='relative' {...props}>
       <Toolbar>
         <Wrapper>
           <Link to='/' aria-label='root'>
@@ -53,7 +54,7 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
           {props.tools}
         </Box>
       </Toolbar>
-    </SAppBar>
+    </AppBar>
   )
 }
 

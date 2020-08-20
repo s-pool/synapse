@@ -35,9 +35,7 @@ const FAQEC = () => {
       }}
       headline={{
         text: 'FAQ',
-        background: {
-          color: blueGrey[200]
-        },
+        bgcolor: blueGrey[200],
         fluid: true
       }}
       contents={

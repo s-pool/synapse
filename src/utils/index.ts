@@ -1,3 +1,2 @@
-export * from './isImage'
-export * from './readText'
+export * from './getMediaType'
 export * from './shuffle'

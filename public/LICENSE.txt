@@ -7,10 +7,8 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 * react-lazyload
 * react-scroll
 * react-router-dom
-* react-meta-tags
 * slash
 * uuid
-* devices.css
 
 Apache License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0
 

@@ -5,7 +5,7 @@ const Home = lazy(() => import('../wrap/pages/LazyHome'))
 const FAQEC = lazy(() => import('../wrap/pages/LazyFAQEC'))
 const Demo = lazy(() => import('../wrap/pages/LazyDemo'))
 
-const base = (process.env.NODE_ENV !== 'development') ? window.location.pathname.split('/').slice(1, 2)[0] : '.'
+const base = (process.env.NODE_ENV !== 'development') ? window.location.pathname.split('/').slice(1, 2)[0] : ''
 
 const Router = () => {
   return (

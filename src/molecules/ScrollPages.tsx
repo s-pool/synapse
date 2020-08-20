@@ -7,6 +7,15 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { mainTheme as theme } from '../theme'
 
+type Content = {
+  body: React.ReactElement,
+  bgColor?: CSSProperties['backgroundColor']
+}
+
+type ScrollPagesProps = {
+  contents: Array<Content>
+}
+
 const Wrapper = styled('div')({
   display: 'flex',
   flexDirection: 'column',
@@ -22,15 +31,6 @@ const ContentWrapper = styled('div')((props:{background:string}) => ({
     0px -1px 5px 0px ${fade(props.background, 0.12)}
   `
 }))
-
-type Content = {
-  body: React.ReactElement,
-  bgColor?: CSSProperties['backgroundColor']
-}
-
-type ScrollPagesProps = {
-  contents: Array<Content>
-}
 
 const scrollProps = {
   duration: theme.transitions.duration.standard,

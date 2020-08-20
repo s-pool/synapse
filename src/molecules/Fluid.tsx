@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     animationIterationCount: 'infinite',
     animationDirection: 'normal, alternate',
     background: (props:FluidProps) => `radial-gradient(ellipse at center,
-        ${fade(props.color || theme.colorSet[Math.floor(theme.colorSet.length * Math.random())], 0.9)} 0%,
-        ${fade(props.color || theme.colorSet[Math.floor(theme.colorSet.length * Math.random())], 0.6)} 100%
+        ${fade(props.color || theme.randomColors[Math.floor(theme.randomColors.length * Math.random())], 0.9)} 0%,
+        ${fade(props.color || theme.randomColors[Math.floor(theme.randomColors.length * Math.random())], 0.6)} 100%
         )`
   },
   '@keyframes rotate': {

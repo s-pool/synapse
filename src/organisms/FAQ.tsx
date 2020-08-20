@@ -1,14 +1,12 @@
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { animateScroll as scroll, Element, scroller } from 'react-scroll'
 import { v4 as uuidv4 } from 'uuid'
 
 import { StyledFab } from '../atoms'
 import { ColumnPage, ScrollPages, ScrollPagesProps, StyledAppBar, StyledAppBarProps } from '../molecules'
-import { AccordionItemProps, CardProps, Headline, HeadlineStaticProps } from '../organisms'
+import { AccordionItemProps, Accordions, CardProps, Headline, HeadlineStaticProps } from '../organisms'
 import { mainTheme as theme } from '../theme'
-
-const Accordions = lazy(() => import('../wrap/organisms/LazyAccordions'))
 
 type Content = CardProps & {
   items: Array<AccordionItemProps>
@@ -59,16 +57,14 @@ const FAQ:React.FC<FAQProps> = (props) => {
         const ContentsBody = (
           <Element name={content.uuid} key={`faq-p-${content.uuid}`} >
             <ColumnPage text={content.subtitle}>
-              <Suspense fallback={<></>}>
-                <Accordions items={content.items}/>
-              </Suspense>
+              <Accordions items={content.items}/>
             </ColumnPage>
           </Element>
         )
         return (
           {
             body: ContentsBody,
-            bgColor: theme.colorSet[i % theme.colorSet.length]
+            bgColor: theme.bgColors[i % theme.bgColors.length]
           }
         )
       })
