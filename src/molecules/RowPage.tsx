@@ -1,57 +1,40 @@
 
-import { Container, Grid, GridProps, Grow, Icon, Paper, Typography } from '@material-ui/core'
-import { styled, Theme } from '@material-ui/core/styles'
+import { Container, Grid, GridProps, Grow, Typography } from '@material-ui/core'
+import { createStyles, makeStyles, styled } from '@material-ui/core/styles'
 import React from 'react'
 import LazyLoad from 'react-lazyload'
 
-type SlideTitleProps = {
-  shadow?: boolean,
-  contrast?: boolean
-}
-
-type RowPageProps = SlideTitleProps & {
+type RowPageProps = {
   subtitle: string,
   body: string,
-  image?: string | React.ReactElement,
+  image?: string,
   split?: [GridProps['xs'], GridProps['xs']],
   reverse?: boolean
 }
 
-const StyledTypo = styled(Typography)(({ theme, ...props }: SlideTitleProps & {theme: Theme}) => ({
-  textShadow: props.shadow ? '1px 1px 4px rgba(0,0,0,0.12), -1px 1px 4px rgba(0,0,0,0.12), 1px -1px 4px rgba(0,0,0,0.12), -1px -1px 4px rgba(0,0,0,0.12)' : 'none',
-  color: props.contrast ? theme.palette.getContrastText(theme.palette.text.primary) : undefined
-}))
-
-const BodyTypo = styled(StyledTypo)(() => ({
-  lineHeight: 1.75
-}))
-
-const StyledContainer = styled(Container)(() => ({
-  minHeight: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-}))
-
-const Image = styled(Icon)(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '100%',
-  height: '100%',
-  overflow: 'visible'
-}))
-
-const TextBox = styled('div')(() => ({
+const BodyWrapper = styled('div')(() => ({
   whiteSpace: 'pre-line',
   wordBreak: 'break-all'
 }))
 
+const useStyles = makeStyles(() => createStyles({
+  root: {
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  body: {
+    lineHeight: 1.75
+  }
+}))
+
 const RowPage:React.FC<RowPageProps> = (props) => {
+  const classes = useStyles()
   const [left, right] = props.split || [5, 7]
   const direction = props.reverse ? 'row-reverse' : 'row'
   return (
-    <StyledContainer maxWidth='lg'>
+    <Container className={classes.root} maxWidth='lg'>
       <Grid
         container
         direction={direction}
@@ -68,16 +51,16 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             spacing={4}
           >
             <Grid item xs={12}>
-              <StyledTypo variant='h4' color='textPrimary'>
+              <Typography variant='h4' color='textPrimary' component='h2'>
                 {props.subtitle}
-              </StyledTypo>
+              </Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextBox>
-                <BodyTypo variant='h5' color='textSecondary'>
+              <BodyWrapper>
+                <Typography className={classes.body} variant='h5' color='textSecondary' component='span'>
                   {props.body}
-                </BodyTypo>
-              </TextBox>
+                </Typography>
+              </BodyWrapper>
             </Grid>
           </Grid>
         </Grid>
@@ -86,21 +69,13 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             once
             debounce
           >
-            <Grow in>
-              {
-                typeof props.image === 'string'
-                  ? <Paper elevation={4}>
-                    <Image>
-                      <img src={props.image} alt='' height='auto' width='100%'/>
-                    </Image>
-                  </Paper>
-                  : <Image>{props.image}</Image>
-              }
+            <Grow in timeout={300}>
+              <video src={props.image} height='auto' width='100%' autoPlay loop/>
             </Grow>
           </LazyLoad>
         </Grid>
       </Grid>
-    </StyledContainer>
+    </Container>
   )
 }
 

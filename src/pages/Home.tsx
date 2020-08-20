@@ -1,9 +1,8 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
 
-import demo from '../assets/capture/demo/demo.mp4'
+import demo from '../assets/capture/demo/demo_mockup.webm'
 import { Logo } from '../assets/static/synapse_logo'
-import { Mockup } from '../molecules'
 import { PR } from '../organisms'
 import { SynapseAppBar } from '../pages'
 
@@ -28,11 +27,7 @@ const Home = () => {
             body: `データ分析プラットフォーム
             「Synapse」
             `,
-            image: (
-              <Mockup>
-                <video src={demo} height='auto' width='100%' autoPlay loop/>
-              </Mockup>
-            )
+            image: demo
           }
           /*
           {

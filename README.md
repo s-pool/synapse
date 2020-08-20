@@ -5,7 +5,3 @@
 データ分析プラットフォーム「Synapse」
 
 <https://s-pool.github.io/synapse/>
-
-## LICENSE
-
-UNLICENSED

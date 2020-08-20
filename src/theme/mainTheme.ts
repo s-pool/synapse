@@ -8,20 +8,20 @@ const mColors = [teal[100], orange[100], deepPurple[100], lightGreen[100], lime[
 
 declare module '@material-ui/core/styles/createMuiTheme' {
   interface Theme {
-    colorSet: Array<string>,
+    randomColors: Array<string>,
+    bgColors: Array<string>,
     appbar: {
       background: CSSProperties['background'],
       fontColor: CSSProperties['color'],
-      position: CSSProperties['position'],
       boxShadow: CSSProperties['boxShadow']
     }
   }
   interface ThemeOptions {
-    colorSet?: Array<string>,
+    randomColors?: Array<string>,
+    bgColors?: Array<string>,
     appbar?: {
       background?: CSSProperties['background'],
       fontColor?: CSSProperties['color'],
-      position?: CSSProperties['position'],
       boxShadow?: CSSProperties['boxShadow']
     }
   }
@@ -29,11 +29,11 @@ declare module '@material-ui/core/styles/createMuiTheme' {
 
 const createCustomTheme = (options: ThemeOptions) => {
   return createMuiTheme({
-    colorSet: shuffle(mColors),
+    randomColors: shuffle(mColors),
+    bgColors: [grey[50], grey[100]],
     appbar: {
       background: 'linear-gradient(rgba(0,0,0,0.04), rgba(0,0,0,0))',
       fontColor: grey[900],
-      position: 'absolute',
       boxShadow: 'none'
     },
     ...options
