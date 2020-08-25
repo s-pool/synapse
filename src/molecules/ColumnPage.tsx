@@ -1,4 +1,4 @@
-import { Container, Typography } from '@material-ui/core'
+import { Box, Container, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
 
@@ -15,7 +15,10 @@ const Wrapper = styled('div')(({ theme }:{theme:Theme}) => ({
 const useStyles = makeStyles((theme: Theme) => createStyles({
   title: {
     color: (props:ColumnPageProps) => props.color || theme.palette.text.primary,
-    marginBottom: theme.spacing(12)
+    marginBottom: theme.spacing(12),
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.spacing(6)
+    }
   }
 }))
 
@@ -27,7 +30,9 @@ const ColumnPage:React.FC<ColumnPageProps> = ({ children, ...props }) => {
         <Typography className={classes.title} variant='h4' align='center' component='h2'>
           {props.text}
         </Typography>
-        {children}
+        <Box display='contents' onClick={e => e.stopPropagation()}>
+          {children}
+        </Box>
       </Wrapper>
     </Container>
   )

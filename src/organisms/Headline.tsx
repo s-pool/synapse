@@ -1,5 +1,5 @@
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography } from '@material-ui/core'
-import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography, useMediaQuery } from '@material-ui/core'
+import { createStyles, makeStyles, styled, Theme, useTheme } from '@material-ui/core/styles'
 import React from 'react'
 import LazyLoad from 'react-lazyload'
 
@@ -34,7 +34,7 @@ const Caption:React.FC = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <Typography className={classes.typo} variant='h6' align='center' component='h2' >
+    <Typography className={classes.typo} variant='h6' align='center' noWrap component='h2' >
       {children}
     </Typography>
   )
@@ -69,18 +69,23 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     backgroundPosition: 'center',
     backgroundSize: 'auto 66%',
     backgroundRepeat: 'no-repeat',
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '56.25%', // 16:9
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: 0
+    }
   }
 }))
 
 const Headline:React.FC<HeadlineProps> = (props) => {
   const classes = useStyles()
+  const theme = useTheme()
+
   return (
     <Wrapper>
       <BgLayer bgcolor={props.bgcolor}/>
       {props.fluid && <Fluid color={typeof props.fluid === 'string' ? props.fluid : undefined}/>}
       <ColumnPage text={props.text} color={props.color}>
-        <Grid container spacing={4}>
+        <Grid container spacing={useMediaQuery(theme.breakpoints.up('sm')) ? 4 : 2}>
           {
             props.cards.map((card, i) => {
               console.log('card map')
