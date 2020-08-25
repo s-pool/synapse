@@ -1,25 +1,25 @@
 import { blueGrey, grey } from '@material-ui/core/colors'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import bookmark from '../assets/capture/apps/bookmark.gif'
-import navi from '../assets/capture/apps/navi.gif'
-import table from '../assets/capture/apps/table.gif'
-import date from '../assets/capture/graphs/date.gif'
-import exclude from '../assets/capture/graphs/exclude.gif'
-import filter from '../assets/capture/graphs/filter.gif'
-import define from '../assets/capture/others/define.gif'
-import gamen from '../assets/capture/tour/gamen.png'
-import kihon from '../assets/capture/tour/kihon.gif'
-import clear from '../assets/capture/trouble/clear.gif'
+import bookmark from '../assets/desc/apps/bookmark.gif'
+import navi from '../assets/desc/apps/navi.gif'
+import table from '../assets/desc/apps/table.gif'
+import date from '../assets/desc/graphs/date.gif'
+import exclude from '../assets/desc/graphs/exclude.gif'
+import filter from '../assets/desc/graphs/filter.gif'
+import define from '../assets/desc/others/define.gif'
+import gamen from '../assets/desc/tour/gamen.png'
+import kihon from '../assets/desc/tour/kihon.gif'
+import clear from '../assets/desc/trouble/clear.gif'
 import light from '../assets/icon/emoji_objects.svg'
 import help from '../assets/icon/help.svg'
 import chart from '../assets/icon/insert_chart.svg'
 import flag from '../assets/icon/outlined_flag.svg'
 import mouth from '../assets/icon/pest_control_rodent.svg'
 import apps from '../assets/icon/touch_app.svg'
-import { Logo } from '../assets/static/synapse_logo'
+import { Logo } from '../assets/logo/synapse_logo'
 import { FAQ } from '../organisms'
-import { SynapseAppBar } from '../pages'
 
 const FAQEC = () => {
   React.useEffect(() => {
@@ -31,7 +31,23 @@ const FAQEC = () => {
       appbar={{
         logo: <Logo/>,
         fontcolor: grey[50],
-        tools: <SynapseAppBar/>
+        buttons: [
+          {
+            component: Link,
+            to: '/',
+            children: 'HOME'
+          },
+          {
+            component: Link,
+            to: '/faq',
+            children: 'FAQ'
+          },
+          {
+            component: Link,
+            to: '/demo',
+            children: 'DEMO'
+          }
+        ]
       }}
       headline={{
         text: 'FAQ',
@@ -56,17 +72,17 @@ const FAQEC = () => {
                 summary: '基本操作',
                 details: [
                   'Synapseは直観的でインタラクティブな操作を提供します。',
-                  'グラフにホバーすることで詳細が表示され、クリックするとその項目でフィルターをかけることができます。',
-                  kihon
-                ]
+                  'グラフにホバーすることで詳細が表示され、クリックするとその項目でフィルターをかけることができます。'
+                ],
+                images: [kihon]
               },
               {
                 summary: '画面構成',
                 details: [
                   'Synapseの画面はこのようになっています。',
-                  '①は現在のフィルター、②でページ切り替え、③はフィルター操作パネルです。',
-                  gamen
-                ]
+                  '①は現在のフィルター、②でページ切り替え、③はフィルター操作パネルです。'
+                ],
+                images: [gamen]
               }
             ]
           },
@@ -77,24 +93,24 @@ const FAQEC = () => {
               {
                 summary: '別のページを見たい',
                 details: [
-                  '右上の矢印ボタン、またはページ名をクリックすると、表示するページを選択できます。',
-                  navi
-                ]
+                  '右上の矢印ボタン、またはページ名をクリックすると、表示するページを選択できます。'
+                ],
+                images: [navi]
               },
               {
                 summary: 'グラフではなく表を見たい',
                 details: [
-                  'グラフを右クリック -> データを表示を選択すると、テーブル表示に切り替わります。',
-                  table
-                ]
+                  'グラフを右クリック -> データを表示を選択すると、テーブル表示に切り替わります。'
+                ],
+                images: [table]
               },
               {
                 summary: '条件を比較したい',
                 details: [
                   '比較したい条件を選択し、右上のブックマークボタンからブックマークを作成します。',
-                  'ブックマークを選択することで、条件を切り替えて比較することができます。',
-                  bookmark
-                ]
+                  'ブックマークを選択することで、条件を切り替えて比較することができます。'
+                ],
+                images: [bookmark]
               }
             ]
           },
@@ -106,25 +122,25 @@ const FAQEC = () => {
                 summary: 'ある商品の売上を見たい',
                 details: [
                   'ページ上部のフィルターパネルから絞り込みを行うことができます。',
-                  'また、グラフの項目をクリックすることでも選択ができます。',
-                  filter
-                ]
+                  'また、グラフの項目をクリックすることでも選択ができます。'
+                ],
+                images: [filter]
               },
               {
                 summary: '過去3か月のデータを確認したい',
                 details: [
                   '年月をクリックしたままドラッグすることで、範囲選択ができます。',
-                  'さらに、選択した範囲をドラッグすることで、範囲の移動も可能です。',
-                  date
-                ]
+                  'さらに、選択した範囲をドラッグすることで、範囲の移動も可能です。'
+                ],
+                images: [date]
               },
               {
                 summary: 'リピート数0以外の顧客を選択したい',
                 details: [
                   '除外したい条件を選択後、上の選択バーをクリックします。',
-                  'メニュー -> 除外値を選択で、最初に選択していた条件以外でフィルターがかかります。',
-                  exclude
-                ]
+                  'メニュー -> 除外値を選択で、最初に選択していた条件以外でフィルターがかかります。'
+                ],
+                images: [exclude]
               }
             ]
           },
@@ -136,9 +152,9 @@ const FAQEC = () => {
                 summary: 'グラフに表示されるデータが少なくなってしまった',
                 details: [
                   'ページ上部の選択バーをご確認ください。',
-                  '×ボタンで選択状態を解除します。',
-                  clear
-                ]
+                  '×ボタンで選択状態を解除します。'
+                ],
+                images: [clear]
               },
               {
                 summary: 'グラフが勝手に動いている',
@@ -156,9 +172,9 @@ const FAQEC = () => {
                 summary: '数値の定義を知りたい',
                 details: [
                   'グラフ上部のホバーメニュー -> 詳細を表示で、簡単な説明を見ることができます。',
-                  '定義書でより詳しい情報が見られます。',
-                  define
-                ]
+                  '定義書でより詳しい情報が見られます。'
+                ],
+                images: [define]
               },
               {
                 summary: '会議でグラフを共有したい',

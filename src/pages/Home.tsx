@@ -1,10 +1,11 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import demo from '../assets/capture/demo/demo_mockup.webm'
-import { Logo } from '../assets/static/synapse_logo'
+import bigdata from '../assets/image/bigdata.jpg'
+import demo from '../assets/image/demo_mockup.webm'
+import { Logo } from '../assets/logo/synapse_logo'
 import { PR } from '../organisms'
-import { SynapseAppBar } from '../pages'
 
 const Home = () => {
   const theme = useTheme()
@@ -18,7 +19,23 @@ const Home = () => {
       appbar={{
         logo: <Logo/>,
         fontcolor: theme.palette.primary.main,
-        tools: <SynapseAppBar/>
+        buttons: [
+          {
+            component: Link,
+            to: '/',
+            children: 'HOME'
+          },
+          {
+            component: Link,
+            to: '/faq',
+            children: 'FAQ'
+          },
+          {
+            component: Link,
+            to: '/demo',
+            children: 'DEMO'
+          }
+        ]
       }}
       contents={
         [
@@ -27,17 +44,19 @@ const Home = () => {
             body: `データ分析プラットフォーム
             「Synapse」
             `,
-            image: demo
-          }
-          /*
+            image: <video src={demo} height='auto' width='100%' autoPlay loop/>
+          },
           {
             subtitle: 'データをつなぐ、人とつなぐ。',
-            body: `データはあるが、分散されて手間がかかる。フォーマットが違い分析できない。
+            body: `データはあるが、分散されて手間がかかる。
+            フォーマットが違って分析できない。
             そんなデータを、Synapseで一つに。
             `,
             reverse: true,
-            image: bigdata
-          },
+            split: [6, 6],
+            image: <img src={bigdata} height='auto' width='100%' alt=''/>
+          }
+          /*
           {
             subtitle: '思いのままに。',
             body: `Synapseは直観的でインタラクティブなインターフェース。

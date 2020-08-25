@@ -1,36 +1,39 @@
 
-import { Container, Grid, GridProps, Grow, Typography } from '@material-ui/core'
-import { createStyles, makeStyles, styled } from '@material-ui/core/styles'
+import { Container, Grid, GridProps, Grow, Typography, useMediaQuery } from '@material-ui/core'
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles'
 import React from 'react'
 import LazyLoad from 'react-lazyload'
 
 type RowPageProps = {
   subtitle: string,
   body: string,
-  image?: string,
+  image?: React.ReactElement,
   split?: [GridProps['xs'], GridProps['xs']],
   reverse?: boolean
 }
 
-const BodyWrapper = styled('div')(() => ({
-  whiteSpace: 'pre-line',
-  wordBreak: 'break-all'
-}))
-
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme:Theme) => createStyles({
   root: {
     minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: theme.spacing(5)
+  },
+  title: {
+
   },
   body: {
-    lineHeight: 1.75
+    lineHeight: 1.75,
+    whiteSpace: 'pre-line',
+    wordBreak: 'break-all'
   }
 }))
 
 const RowPage:React.FC<RowPageProps> = (props) => {
   const classes = useStyles()
+  const theme = useTheme()
+
   const [left, right] = props.split || [5, 7]
   const direction = props.reverse ? 'row-reverse' : 'row'
   return (
@@ -42,7 +45,7 @@ const RowPage:React.FC<RowPageProps> = (props) => {
         alignItems='center'
         spacing={10}
       >
-        <Grid item xs={left}>
+        <Grid item md={left} xs={12}>
           <Grid
             container
             direction='column'
@@ -51,26 +54,24 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             spacing={4}
           >
             <Grid item xs={12}>
-              <Typography variant='h4' color='textPrimary' component='h2'>
+              <Typography className={classes.title} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h4' : 'h5'} color='textPrimary' component='h2'>
                 {props.subtitle}
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <BodyWrapper>
-                <Typography className={classes.body} variant='h5' color='textSecondary' component='span'>
-                  {props.body}
-                </Typography>
-              </BodyWrapper>
+              <Typography className={classes.body} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h5' : 'h6'} color='textSecondary' component='span'>
+                {props.body}
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={right}>
+        <Grid item md={right} xs={12}>
           <LazyLoad
             once
             debounce
           >
             <Grow in timeout={300}>
-              <video src={props.image} height='auto' width='100%' autoPlay loop/>
+              {props.image}
             </Grow>
           </LazyLoad>
         </Grid>

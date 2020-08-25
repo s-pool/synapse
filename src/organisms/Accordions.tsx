@@ -1,10 +1,15 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, CircularProgress, Typography } from '@material-ui/core'
+import 'react-image-gallery/styles/scss/image-gallery.scss'
+
+import { Accordion, AccordionDetails, AccordionSummary, Box, CircularProgress, IconButton, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import FullscreenIcon from '@material-ui/icons/Fullscreen'
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
+import NavigateNextIcon from '@material-ui/icons/NavigateNext'
+import clsx from 'clsx'
 import React from 'react'
+import ImageGallery from 'react-image-gallery'
 import LazyLoad from 'react-lazyload'
-
-import { getMediaType } from '../utils'
 
 type UUID = {
   uuid: string
@@ -13,6 +18,7 @@ type UUID = {
 type AccordionItemProps = {
   summary: string,
   details: Array<string>,
+  images?: Array<string>
 }
 
 type AccordionsProps = {
@@ -44,16 +50,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
   },
   summary: {
-    padding: theme.spacing(1, 5),
+    padding: theme.spacing(0, 2),
     '&:hover': {
       background: theme.palette.action.hover
     }
   },
   details: {
     flexDirection: 'column',
-    padding: theme.spacing(2, 4),
+    padding: theme.spacing(2, 3),
     margin: theme.spacing(2, 0),
-    marginLeft: theme.spacing(6),
+    marginLeft: theme.spacing(3),
     borderLeftWidth: 4,
     borderLeftStyle: 'solid',
     borderLeftColor: theme.palette.divider
@@ -61,6 +67,42 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   detailsTypo: {
     whiteSpace: 'pre-wrap',
     marginBottom: theme.spacing(1)
+  },
+  nav: {
+    '& .image-gallery-bullets .image-gallery-bullet': {
+      boxShadow: 'none',
+      border: 'none',
+      padding: 4,
+      background: theme.palette.action.active
+    },
+    '& .image-gallery-bullets .image-gallery-bullet.active': {
+      background: theme.palette.primary.main
+    }
+  },
+  navButton: {
+    position: 'absolute',
+    zIndex: 4,
+    '& svg': {
+      fontSize: '2rem'
+    },
+    opacity: 0.7,
+    '&:hover': {
+      opacity: 1
+    }
+  },
+  navButtonLeft: {
+    left: 0,
+    top: '50%',
+    transform: 'translateY(-50%)'
+  },
+  navButtonRight: {
+    right: 0,
+    top: '50%',
+    transform: 'translateY(-50%)'
+  },
+  navButtonFull: {
+    right: 0,
+    bottom: 0
   }
 }))
 
@@ -90,52 +132,73 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
               {
-                item.details.map((p, i) => {
-                  const mType = getMediaType(p)
-                  if (mType === 'img') {
-                    return (
-                      <LazyLoad
-                        once
-                        height={400}
-                        placeholder={
-                          <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
-                            <CircularProgress/>
-                          </Box>
-                        }
-                        debounce
-                        key={`${item.uuid}-fig-${i}`}
-                      >
-                        <ImageWrapper>
-                          <img src={p} alt='' height='auto' width='100%'/>
-                        </ImageWrapper>
-                      </LazyLoad>
-                    )
-                  } else if (mType === 'video') {
-                    return (
-                      <LazyLoad
-                        once
-                        height={400}
-                        placeholder={
-                          <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
-                            <CircularProgress/>
-                          </Box>
-                        }
-                        debounce
-                        key={`${item.uuid}-fig-${i}`}
-                      >
-                        <ImageWrapper>
-                          <video src={p} height='auto' width='100%' autoPlay loop/>
-                        </ImageWrapper>
-                      </LazyLoad>
-                    )
-                  } else {
-                    return (
-                      <Typography className={classes.detailsTypo} variant='body1' key={`${item.uuid}-body-${i}`}>
-                        {p}
-                      </Typography>
-                    )
-                  }
+                item.details.map((detail, i) => {
+                  return (
+                    <Typography className={classes.detailsTypo} variant='body1' key={`${item.uuid}-body-${i}`}>
+                      {detail}
+                    </Typography>
+                  )
                 })
+              }
+              {
+                (item.images)
+                  ? <LazyLoad
+                    once
+                    height={400}
+                    placeholder={
+                      <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
+                        <CircularProgress/>
+                      </Box>
+                    }
+                    debounce
+                  >
+                    <ImageWrapper className={classes.nav}>
+                      <ImageGallery
+                        items={
+                          item.images.map((src) => {
+                            return (
+                              {
+                                original: src
+                              }
+                            )
+                          })
+                        }
+                        showPlayButton={false}
+                        showBullets={true}
+                        showThumbnails={false}
+                        slideDuration={300}
+                        lazyLoad
+                        renderLeftNav={
+                          (onClick) => {
+                            return (
+                              <IconButton className={clsx(classes.navButton, classes.navButtonLeft)} onClick={onClick}>
+                                <NavigateBeforeIcon/>
+                              </IconButton>
+                            )
+                          }
+                        }
+                        renderRightNav={
+                          (onClick) => {
+                            return (
+                              <IconButton className={clsx(classes.navButton, classes.navButtonRight)} onClick={onClick}>
+                                <NavigateNextIcon/>
+                              </IconButton>
+                            )
+                          }
+                        }
+                        renderFullscreenButton={
+                          (onClick) => {
+                            return (
+                              <IconButton className={clsx(classes.navButton, classes.navButtonFull)} onClick={onClick}>
+                                <FullscreenIcon/>
+                              </IconButton>
+                            )
+                          }
+                        }
+                      />
+                    </ImageWrapper>
+                  </LazyLoad>
+                  : <></>
               }
             </AccordionDetails>
           </Accordion>
