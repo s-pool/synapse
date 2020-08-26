@@ -1,0 +1,2 @@
+(this["webpackJsonpsynapse-pages"]=this["webpackJsonpsynapse-pages"]||[]).push([[4],{230:function(s,e,n){"use strict";n.r(e);var p=n(89);n.d(e,"default",(function(){return p.b}))}}]);
+//# sourceMappingURL=4.d3b78810.chunk.js.map
