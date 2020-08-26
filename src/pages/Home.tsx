@@ -1,6 +1,7 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
 import MetaTags from 'react-meta-tags'
+import ReactPlayer from 'react-player'
 
 import bigdata from '../assets/image/bigdata.jpg'
 import demo from '../assets/image/demo_mockup.webm'
@@ -28,7 +29,7 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: <video src={demo} height='auto' width='100%' autoPlay loop muted playsInline/>
+              image: <ReactPlayer url={demo} height='auto' width='100%' playing loop muted playsinline/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',

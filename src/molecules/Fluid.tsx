@@ -3,10 +3,11 @@ import { fade } from '@material-ui/core/styles/colorManipulator'
 import clsx from 'clsx'
 import React from 'react'
 
-const FLUID_SIZE = 720
+const FLUID_SIZE = window.innerHeight * 0.7
 const FLUID_R = FLUID_SIZE / 2
 const MIN_R = FLUID_R * 0.8
 
+console.log(FLUID_SIZE)
 const FluidObj = styled('div')(() => ({
   position: 'absolute',
   zIndex: -1,

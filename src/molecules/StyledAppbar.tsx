@@ -29,10 +29,11 @@ const LogoWrapper = styled('div')(({ theme, color }:{theme: Theme, color: Styled
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(1.5, 0),
   width: 'auto',
-  height: 0,
-  ...theme.mixins.toolbar
+  height: 40,
+  [theme.breakpoints.down('xs')]: {
+    height: 32
+  }
 }))
 
 const useStyles = makeStyles((theme: Theme) => createStyles({

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.spacing(5)
+    padding: theme.spacing(10, 5)
   },
   title: {
     [theme.breakpoints.down('xs')]: {
