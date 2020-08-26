@@ -15,17 +15,20 @@ type ImageBoxProps = {
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
+    '& img.image-gallery-image': {
+      outline: 'none'
+    },
     '& .image-gallery': {
-      background: 'rgba(0,0,0,0)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
+      background: 'rgba(0,0,0,0)'
     },
     '& .image-gallery-content': {
       flex: 1
     },
     '& .image-gallery-content.fullscreen': {
-      background: theme.palette.background.paper
+      background: theme.palette.background.paper,
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
     },
     '& .image-gallery-bullets': {
       bottom: '4%'
