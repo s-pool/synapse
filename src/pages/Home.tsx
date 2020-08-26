@@ -1,15 +1,16 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
 import MetaTags from 'react-meta-tags'
-import ReactPlayer from 'react-player'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import demo from '../assets/image/demo_mockup.mp4'
+import altDemo from '../assets/image/demo_mockup.png'
+import demo from '../assets/image/demo_mockup.webm'
 import { PR } from '../organisms'
 import { appbarProps } from '../pages'
-
 const Home = () => {
   const theme = useTheme()
+
+  const [video, setVideo] = React.useState(true)
 
   return (
     <React.Fragment>
@@ -29,7 +30,9 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: <ReactPlayer url={demo} height='auto' width='100%' playing loop muted playsinline/>
+              image: video
+                ? <video src={demo} height='auto' width='100%' autoPlay loop muted playsInline onError={() => setVideo(false)}/>
+                : <img src={altDemo} height='auto' width='100%' alt=''/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',
