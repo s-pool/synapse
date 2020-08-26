@@ -1,15 +1,10 @@
-import 'react-image-gallery/styles/scss/image-gallery.scss'
 
-import { Accordion, AccordionDetails, AccordionSummary, Box, CircularProgress, IconButton, Typography } from '@material-ui/core'
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import FullscreenIcon from '@material-ui/icons/Fullscreen'
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
-import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import clsx from 'clsx'
 import React from 'react'
-import ImageGallery from 'react-image-gallery'
-import LazyLoad from 'react-lazyload'
+
+import { ImageBox } from '../molecules'
 
 type UUID = {
   uuid: string
@@ -67,42 +62,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   detailsTypo: {
     whiteSpace: 'pre-wrap',
     marginBottom: theme.spacing(1)
-  },
-  nav: {
-    '& .image-gallery-bullets .image-gallery-bullet': {
-      boxShadow: 'none',
-      border: 'none',
-      padding: 4,
-      background: theme.palette.action.active
-    },
-    '& .image-gallery-bullets .image-gallery-bullet.active': {
-      background: theme.palette.primary.main
-    }
-  },
-  navButton: {
-    position: 'absolute',
-    zIndex: 4,
-    '& svg': {
-      fontSize: '2rem'
-    },
-    opacity: 0.7,
-    '&:hover': {
-      opacity: 1
-    }
-  },
-  navButtonLeft: {
-    left: 0,
-    top: '50%',
-    transform: 'translateY(-50%)'
-  },
-  navButtonRight: {
-    right: 0,
-    top: '50%',
-    transform: 'translateY(-50%)'
-  },
-  navButtonFull: {
-    right: 0,
-    bottom: 0
   }
 }))
 
@@ -142,62 +101,7 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
               }
               {
                 (item.images)
-                  ? <LazyLoad
-                    once
-                    height={400}
-                    placeholder={
-                      <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
-                        <CircularProgress/>
-                      </Box>
-                    }
-                    debounce
-                  >
-                    <ImageWrapper className={classes.nav}>
-                      <ImageGallery
-                        items={
-                          item.images.map((src) => {
-                            return (
-                              {
-                                original: src
-                              }
-                            )
-                          })
-                        }
-                        showPlayButton={false}
-                        showBullets={true}
-                        showThumbnails={false}
-                        slideDuration={300}
-                        lazyLoad
-                        renderLeftNav={
-                          (onClick) => {
-                            return (
-                              <IconButton className={clsx(classes.navButton, classes.navButtonLeft)} onClick={onClick}>
-                                <NavigateBeforeIcon/>
-                              </IconButton>
-                            )
-                          }
-                        }
-                        renderRightNav={
-                          (onClick) => {
-                            return (
-                              <IconButton className={clsx(classes.navButton, classes.navButtonRight)} onClick={onClick}>
-                                <NavigateNextIcon/>
-                              </IconButton>
-                            )
-                          }
-                        }
-                        renderFullscreenButton={
-                          (onClick) => {
-                            return (
-                              <IconButton className={clsx(classes.navButton, classes.navButtonFull)} onClick={onClick}>
-                                <FullscreenIcon/>
-                              </IconButton>
-                            )
-                          }
-                        }
-                      />
-                    </ImageWrapper>
-                  </LazyLoad>
+                  ? <ImageWrapper><ImageBox items={item.images}/></ImageWrapper>
                   : <></>
               }
             </AccordionDetails>

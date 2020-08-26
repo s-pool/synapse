@@ -1,5 +1,5 @@
-export * from './Demo'
+export * from './appbarProps'
+export * from './Blank'
 export * from './FAQEC'
 export * from './Home'
 export * from './Router'
-export * from './SynapseAppBar'

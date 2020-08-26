@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 const Home = lazy(() => import('../wrap/pages/LazyHome'))
 const FAQEC = lazy(() => import('../wrap/pages/LazyFAQEC'))
-const Demo = lazy(() => import('../wrap/pages/LazyDemo'))
+const Blank = lazy(() => import('../wrap/pages/LazyBlank'))
 
 const base = (process.env.NODE_ENV !== 'development') ? window.location.pathname.split('/').slice(1, 2)[0] : ''
 
@@ -15,7 +15,7 @@ const Router = () => {
         <Switch>
           <Route path='/' component={Home} exact/>
           <Route path='/faq' component={FAQEC} exact/>
-          <Route path='/demo' component={Demo} exact/>
+          <Route path='/demo' component={Blank} exact/>
         </Switch>
       </Suspense>
     </BrowserRouter>

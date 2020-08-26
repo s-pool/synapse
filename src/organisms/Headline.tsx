@@ -27,14 +27,18 @@ type HeadlineProps = HeadlineStaticProps & {
 const Caption:React.FC = ({ children }) => {
   const useStyles = makeStyles((theme: Theme) => createStyles({
     typo: {
-      margin: theme.spacing(1, 0)
+      margin: theme.spacing(1, 0),
+      [theme.breakpoints.down('xs')]: {
+        margin: theme.spacing(0)
+      }
     }
   }))
 
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
-    <Typography className={classes.typo} variant='h6' align='center' noWrap component='h2' >
+    <Typography className={classes.typo} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h6' : 'subtitle1'} align='center' noWrap component='h2' >
       {children}
     </Typography>
   )
