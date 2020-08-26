@@ -69,14 +69,51 @@ const mainTheme = createCustomTheme({
     }
   },
   typography: {
-    button: {
-      textTransform: 'none'
-    },
     fontFamily: '"Roboto","BIZ UPDGothic",sans-serif',
     fontWeightLight: 400,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 500
+    fontWeightBold: 500,
+    h1: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    h2: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    h3: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    h4: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    h5: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    h6: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    subtitle1: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    subtitle2: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    body1: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    body2: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    button: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif',
+      textTransform: 'none'
+    },
+    caption: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    },
+    overline: {
+      fontFamily: '"Roboto","BIZ UPDGothic",sans-serif'
+    }
   },
   overrides: {
     MuiCssBaseline: {

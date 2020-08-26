@@ -22,12 +22,16 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     padding: theme.spacing(5)
   },
   title: {
-
+    [theme.breakpoints.down('xs')]: {
+      ...theme.typography.h6
+    }
   },
   body: {
+    [theme.breakpoints.down('xs')]: {
+      ...theme.typography.subtitle1
+    },
     lineHeight: 1.75,
-    whiteSpace: 'pre-line',
-    wordBreak: 'break-all'
+    whiteSpace: 'pre-line'
   },
   shift: {
     [theme.breakpoints.up('sm')]: {
@@ -68,16 +72,16 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             direction='column'
             justify='center'
             alignItems='flex-start'
-            spacing={4}
+            spacing={useMediaQuery(theme.breakpoints.up('sm')) ? 4 : 2}
             className={clsx(props.reverse && classes.shift)}
           >
             <Grid item xs={12}>
-              <Typography className={classes.title} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h4' : 'h5'} color='textPrimary' component='h2'>
+              <Typography className={classes.title} variant='h4' color='textPrimary' component='h2'>
                 {props.subtitle}
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography className={classes.body} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h5' : 'h6'} color='textSecondary' component='span'>
+              <Typography className={classes.body} variant='h5' color='textSecondary' component='span'>
                 {props.body}
               </Typography>
             </Grid>

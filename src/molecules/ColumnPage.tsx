@@ -1,5 +1,5 @@
-import { Box, Container, Typography, useMediaQuery } from '@material-ui/core'
-import { createStyles, makeStyles, styled, Theme, useTheme } from '@material-ui/core/styles'
+import { Box, Container, Typography } from '@material-ui/core'
+import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
 
 type ColumnPageProps = {
@@ -17,18 +17,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     color: (props:ColumnPageProps) => props.color || theme.palette.text.primary,
     marginBottom: theme.spacing(12),
     [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(6)
+      marginBottom: theme.spacing(6),
+      ...theme.typography.h5
     }
   }
 }))
 
 const ColumnPage:React.FC<ColumnPageProps> = ({ children, ...props }) => {
   const classes = useStyles(props)
-  const theme = useTheme()
   return (
     <Container maxWidth='md'>
       <Wrapper>
-        <Typography className={classes.title} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h4' : 'h5'} align='center' component='h2'>
+        <Typography className={classes.title} variant='h4' align='center' component='h2'>
           {props.text}
         </Typography>
         <Box display='contents' onClick={e => e.stopPropagation()}>

@@ -101,7 +101,9 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
               }
               {
                 (item.images)
-                  ? <ImageWrapper><ImageBox items={item.images}/></ImageWrapper>
+                  ? <ImageWrapper>
+                    <ImageBox items={item.images}/>
+                  </ImageWrapper>
                   : <></>
               }
             </AccordionDetails>
