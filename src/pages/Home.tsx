@@ -28,7 +28,7 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: <video src={demo} height='auto' width='100%' autoPlay loop/>
+              image: <video src={demo} height='auto' width='100%' autoPlay loop muted playsInline/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',

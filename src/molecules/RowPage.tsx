@@ -1,6 +1,7 @@
 
 import { Container, Grid, GridProps, Grow, Typography, useMediaQuery } from '@material-ui/core'
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles'
+import clsx from 'clsx'
 import React from 'react'
 import LazyLoad from 'react-lazyload'
 
@@ -27,6 +28,11 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     lineHeight: 1.75,
     whiteSpace: 'pre-line',
     wordBreak: 'break-all'
+  },
+  shift: {
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(2)
+    }
   }
 }))
 
@@ -63,6 +69,7 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             justify='center'
             alignItems='flex-start'
             spacing={4}
+            className={clsx(props.reverse && classes.shift)}
           >
             <Grid item xs={12}>
               <Typography className={classes.title} variant={useMediaQuery(theme.breakpoints.up('sm')) ? 'h4' : 'h5'} color='textPrimary' component='h2'>

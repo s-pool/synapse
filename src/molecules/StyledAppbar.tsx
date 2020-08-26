@@ -83,7 +83,9 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
                 {
                   props.menu?.map(({ children, ...rest }) => {
                     return (
-                      <Button color='inherit' size='large' {...rest}>{children}</Button>
+                      <Button color='inherit' size='large' {...rest} key={`menu-${children}`}>
+                        {children}
+                      </Button>
                     )
                   })
                 }
@@ -100,7 +102,7 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
                   {
                     props.menu?.map(({ children, ...rest }) => {
                       return (
-                        <ListItem button onClick={() => setOpen(false)} {...rest}>
+                        <ListItem button onClick={() => setOpen(false)} {...rest} key={`menu-${children}`}>
                           <ListItemText className={classes.drawerItem}>{children}</ListItemText>
                         </ListItem >
                       )
