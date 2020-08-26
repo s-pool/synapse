@@ -9,7 +9,10 @@ type ColumnPageProps = {
 
 const Wrapper = styled('div')(({ theme }:{theme:Theme}) => ({
   minHeight: '95vh',
-  padding: theme.spacing(16, 0)
+  padding: theme.spacing(16, 0),
+  [theme.breakpoints.down('xs')]: {
+    padding: theme.spacing(12, 0)
+  }
 }))
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
