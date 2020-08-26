@@ -32,7 +32,7 @@ const LogoWrapper = styled('div')(({ theme, color }:{theme: Theme, color: Styled
   width: 'auto',
   height: 40,
   [theme.breakpoints.down('xs')]: {
-    height: 32
+    height: 36
   }
 }))
 

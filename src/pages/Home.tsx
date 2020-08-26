@@ -4,7 +4,7 @@ import MetaTags from 'react-meta-tags'
 import ReactPlayer from 'react-player'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import demo from '../assets/image/demo_mockup.webm'
+import demo from '../assets/image/demo_mockup.mp4'
 import { PR } from '../organisms'
 import { appbarProps } from '../pages'
 

@@ -27,8 +27,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     '& .image-gallery-content.fullscreen': {
       background: theme.palette.background.paper,
       top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
+      transform: 'translateY(-50%)'
     },
     '& .image-gallery-bullets': {
       bottom: '4%'
