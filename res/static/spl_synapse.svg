@@ -8,10 +8,10 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   height="356.41132"
-   width="1402.651"
+   height="305.65305"
+   width="1328.1095"
    sodipodi:docname="spl_synapse.svg"
-   viewBox="0 0 1402.651 356.4113"
+   viewBox="0 0 1328.1095 305.65303"
    version="1.1"
    id="svg8">
   <metadata
@@ -27,12 +27,12 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:current-layer="svg8"
+     inkscape:current-layer="g975"
      inkscape:window-maximized="1"
      inkscape:window-y="-8"
      inkscape:window-x="-8"
-     inkscape:cy="227.03527"
-     inkscape:cx="1511.4369"
+     inkscape:cy="201.65613"
+     inkscape:cx="1436.8955"
      inkscape:zoom="0.33968451"
      fit-margin-bottom="0"
      fit-margin-right="0"
@@ -41,7 +41,7 @@
      showgrid="false"
      id="namedview26"
      inkscape:window-height="1057"
-     inkscape:window-width="1856"
+     inkscape:window-width="1855"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
      guidetolerance="10"
@@ -49,14 +49,15 @@
      objecttolerance="10"
      borderopacity="1"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <g
-     transform="translate(-4.9227302,-0.82068344)"
+     transform="translate(-79.464189,-26.199815)"
      id="g975">
     <g
-       transform="translate(81.34021,-230.24988)"
+       transform="matrix(0.85758513,0,0,0.85758513,144.99868,-171.96287)"
        display="inline"
        id="layer6">
       <g
@@ -134,7 +135,7 @@
       </g>
     </g>
     <g
-       transform="translate(-28.981736,61.750571)"
+       transform="translate(-28.981736,61.75057)"
        display="inline"
        id="layer8">
       <g

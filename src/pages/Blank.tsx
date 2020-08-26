@@ -2,10 +2,10 @@ import { Typography } from '@material-ui/core'
 import { blueGrey, grey } from '@material-ui/core/colors'
 import { styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import MetaTags from 'react-meta-tags'
 
-import { Logo } from '../assets/logo/synapse_logo'
 import { Fluid, StyledAppBar } from '../molecules'
+import { appbarProps } from '../pages'
 
 const Wrapper = styled('div')(() => ({
   position: 'relative',
@@ -27,30 +27,17 @@ const BgLayer = styled('div')(({ theme, bgcolor }:{theme:Theme, bgcolor?: string
   right: 0
 }))
 
-const Demo:React.FC = () => {
+const Blank:React.FC = () => {
   return (
     <React.Fragment>
-      <StyledAppBar {...{
-        logo: <Logo/>,
-        fontcolor: grey[50],
-        buttons: [
-          {
-            component: Link,
-            to: '/',
-            children: 'HOME'
-          },
-          {
-            component: Link,
-            to: '/faq',
-            children: 'FAQ'
-          },
-          {
-            component: Link,
-            to: '/demo',
-            children: 'DEMO'
-          }
-        ]
-      }}/>
+      <MetaTags>
+        <title>エスプール Synapse - データ分析プラットフォーム</title>
+        <meta name='description' content='つなぐ、見える、伝わる。データ分析プラットフォーム「Synapse」' />
+      </MetaTags>
+      <StyledAppBar
+        {...appbarProps}
+        fontcolor={grey[50]}
+      />
       <Wrapper>
         <BgLayer bgcolor={blueGrey[200]}/>
         <Fluid/>
@@ -62,4 +49,4 @@ const Demo:React.FC = () => {
   )
 }
 
-export { Demo }
+export { Blank }

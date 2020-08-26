@@ -4,10 +4,11 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 
 * material-ui
 * react
-* react-lazyload
-* react-scroll
-* react-router-dom
 * react-image-gallery
+* react-lazyload
+* react-meta-tags
+* react-router-dom
+* react-scroll
 * slash
 * uuid
 

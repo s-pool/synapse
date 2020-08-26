@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom'
 type StyledAppBarProps = AppBarProps & {
   logo: React.ReactElement,
   fontcolor?: string,
-  buttons?: Array<{
+  menu?: Array<{
     children: string
+    [key:string] : any
   }>
 }
 
@@ -28,7 +29,7 @@ const LogoWrapper = styled('div')(({ theme, color }:{theme: Theme, color: Styled
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(1, 0),
+  padding: theme.spacing(1.5, 0),
   width: 'auto',
   height: 0,
   ...theme.mixins.toolbar
@@ -43,10 +44,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   }),
   menu: {
     position: 'absolute',
-    left: theme.spacing(1),
-    '& svg': {
-      fontSize: 32
-    }
+    left: theme.spacing(1)
   },
   drawer: {
     '& .MuiDrawer-paper': {
@@ -83,34 +81,36 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
             useMediaQuery(theme.breakpoints.up('sm'))
               ? <Box display='flex' marginRight={2}>
                 {
-            props.buttons?.map(({ children, ...rest }) => {
-              return (
-                <Button color='inherit' size='large' {...rest}>{children}</Button>
-              )
-            })
+                  props.menu?.map(({ children, ...rest }) => {
+                    return (
+                      <Button color='inherit' size='large' {...rest}>{children}</Button>
+                    )
+                  })
                 }
               </Box>
-              : <IconButton onClick={() => setOpen(!open)} color='inherit' className={classes.menu} >
-                <MenuIcon/>
-              </IconButton>
+              : <React.Fragment>
+                <IconButton onClick={() => setOpen(!open)} color='inherit' className={classes.menu} >
+                  <MenuIcon/>
+                </IconButton>
+                <Drawer
+                  open={open}
+                  onClose={() => setOpen(false)}
+                  className={classes.drawer}
+                >
+                  {
+                    props.menu?.map(({ children, ...rest }) => {
+                      return (
+                        <ListItem button onClick={() => setOpen(false)} {...rest}>
+                          <ListItemText className={classes.drawerItem}>{children}</ListItemText>
+                        </ListItem >
+                      )
+                    })
+                  }
+                </Drawer>
+              </React.Fragment>
           }
         </Toolbar>
       </AppBar>
-      <Drawer
-        open={open}
-        onClose={() => setOpen(false)}
-        className={classes.drawer}
-      >
-        {
-        props.buttons?.map(({ children, ...rest }) => {
-          return (
-            <ListItem button onClick={() => setOpen(false)} {...rest}>
-              <ListItemText className={classes.drawerItem}>{children}</ListItemText>
-            </ListItem >
-          )
-        })
-        }
-      </Drawer>
     </React.Fragment>
   )
 }

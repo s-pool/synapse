@@ -35,7 +35,7 @@ const RowPage:React.FC<RowPageProps> = (props) => {
   const theme = useTheme()
 
   const [left, right] = props.split || [5, 7]
-  const direction = props.reverse ? 'row-reverse' : 'row'
+  const direction = props.reverse ? 'row' : 'row-reverse'
   return (
     <Container className={classes.root} maxWidth='lg'>
       <Grid
@@ -45,6 +45,17 @@ const RowPage:React.FC<RowPageProps> = (props) => {
         alignItems='center'
         spacing={10}
       >
+        <Grid item md={right} xs={12}>
+          <LazyLoad
+            once
+            debounce
+            height={window.innerWidth * 3 / 4}
+          >
+            <Grow in timeout={300}>
+              {props.image}
+            </Grow>
+          </LazyLoad>
+        </Grid>
         <Grid item md={left} xs={12}>
           <Grid
             container
@@ -64,16 +75,6 @@ const RowPage:React.FC<RowPageProps> = (props) => {
               </Typography>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item md={right} xs={12}>
-          <LazyLoad
-            once
-            debounce
-          >
-            <Grow in timeout={300}>
-              {props.image}
-            </Grow>
-          </LazyLoad>
         </Grid>
       </Grid>
     </Container>
