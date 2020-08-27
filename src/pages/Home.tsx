@@ -3,7 +3,8 @@ import React from 'react'
 import MetaTags from 'react-meta-tags'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import demo from '../assets/image/demo_mockup.png'
+import mockup from '../assets/image/demo_mockup.png'
+import demo from '../assets/image/demo.png'
 import { Youtube } from '../molecules'
 import { PR } from '../organisms'
 import { appbarProps } from '../pages'
@@ -29,7 +30,7 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: <img src={demo} height='auto' width='100%' alt=''/>
+              image: <img src={mockup} height='auto' width='100%' alt=''/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',
@@ -46,7 +47,7 @@ const Home = () => {
               body: `Synapseは直観的でインタラクティブなインターフェース。
               あなたの探求を妨げません。
             `,
-              image: <Youtube url='https://youtu.be/lTgSW7qU3UA'/>
+              image: <Youtube url='https://youtu.be/lTgSW7qU3UA' light={demo}/>
             }
           ]
         }
