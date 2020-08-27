@@ -7,7 +7,6 @@ const FLUID_SIZE = window.innerHeight * 0.75
 const FLUID_R = FLUID_SIZE / 2
 const MIN_R = FLUID_R * 0.8
 
-console.log(FLUID_SIZE)
 const FluidObj = styled('div')(() => ({
   position: 'absolute',
   zIndex: -1,
