@@ -3,14 +3,13 @@ import React from 'react'
 import MetaTags from 'react-meta-tags'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import altDemo from '../assets/image/demo_mockup.png'
-import demo from '../assets/image/demo_mockup.webm'
+import demo from '../assets/image/demo_mockup.png'
+import { Youtube } from '../molecules'
 import { PR } from '../organisms'
 import { appbarProps } from '../pages'
+
 const Home = () => {
   const theme = useTheme()
-
-  const [video, setVideo] = React.useState(true)
 
   return (
     <React.Fragment>
@@ -30,9 +29,7 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: video
-                ? <video src={demo} height='auto' width='100%' autoPlay loop muted playsInline onError={() => setVideo(false)}/>
-                : <img src={altDemo} height='auto' width='100%' alt=''/>
+              image: <img src={demo} height='auto' width='100%' alt=''/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',
@@ -43,16 +40,14 @@ const Home = () => {
               reverse: true,
               split: [6, 6],
               image: <img src={bigdata} height='auto' width='100%' alt=''/>
-            }
-          /*
-          {
-            subtitle: '思いのままに。',
-            body: `Synapseは直観的でインタラクティブなインターフェース。
+            },
+            {
+              subtitle: '思いのままに。',
+              body: `Synapseは直観的でインタラクティブなインターフェース。
               あなたの探求を妨げません。
             `,
-            image: analytics
-          }
-          */
+              image: <Youtube url='https://youtu.be/lTgSW7qU3UA'/>
+            }
           ]
         }
       />

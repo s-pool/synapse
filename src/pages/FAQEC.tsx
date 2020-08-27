@@ -2,25 +2,14 @@ import { blueGrey, grey } from '@material-ui/core/colors'
 import React from 'react'
 import MetaTags from 'react-meta-tags'
 
-import bookmark from '../assets/desc/apps/bookmark.gif'
-import navi from '../assets/desc/apps/navi.gif'
-import table from '../assets/desc/apps/table.gif'
-import date from '../assets/desc/graphs/date.gif'
-import exclude from '../assets/desc/graphs/exclude.gif'
-import filter from '../assets/desc/graphs/filter.gif'
-import define from '../assets/desc/others/define.gif'
-import gamen from '../assets/desc/tour/gamen.png'
-import gamen1 from '../assets/desc/tour/gamen1.png'
-import gamen2 from '../assets/desc/tour/gamen2.png'
-import gamen3 from '../assets/desc/tour/gamen3.png'
-import kihon from '../assets/desc/tour/kihon.gif'
-import clear from '../assets/desc/trouble/clear.gif'
 import light from '../assets/icon/emoji_objects.svg'
 import help from '../assets/icon/help.svg'
 import chart from '../assets/icon/insert_chart.svg'
 import flag from '../assets/icon/outlined_flag.svg'
 import mouth from '../assets/icon/pest_control_rodent.svg'
 import apps from '../assets/icon/touch_app.svg'
+import gamen from '../assets/image/gamen.png'
+import { ImageBox, Youtube } from '../molecules'
 import { FAQ } from '../organisms'
 import { appbarProps } from '../pages'
 
@@ -61,15 +50,17 @@ const FAQEC = () => {
                     'Synapseは直観的でインタラクティブな操作を提供します。',
                     'グラフにホバーすることで詳細が表示され、クリックするとその項目でフィルターをかけることができます。'
                   ],
-                  images: [kihon]
+                  images: <Youtube url='https://youtu.be/lTgSW7qU3UA'/>
                 },
                 {
                   summary: '画面構成',
                   details: [
                     'Synapseの画面はこのようになっています。',
-                    '2枚目のエリアが現在のフィルター、3枚目はページ切り替え、4枚目はフィルター操作パネルです。'
+                    'グラフをクリックすることで、ページ全体がドリルダウンします。',
+                    '選択した項目は①の選択パネルに表示され、ここから追加、削除が行えます。',
+                    '②はページ切り替え、③はフィルター操作パネルです。'
                   ],
-                  images: [gamen, gamen1, gamen2, gamen3]
+                  images: <ImageBox items={[gamen]}/>
                 }
               ]
             },
@@ -82,14 +73,14 @@ const FAQEC = () => {
                   details: [
                     '右上の矢印ボタン、またはページ名をクリックすると、表示するページを選択できます。'
                   ],
-                  images: [navi]
+                  images: <Youtube url='https://youtu.be/OVy18sIpeBA'/>
                 },
                 {
                   summary: 'グラフではなく表を見たい',
                   details: [
                     'グラフを右クリック -> データを表示を選択すると、テーブル表示に切り替わります。'
                   ],
-                  images: [table]
+                  images: <Youtube url='https://youtu.be/zYvjPsPvTwk'/>
                 },
                 {
                   summary: '条件を比較したい',
@@ -97,7 +88,7 @@ const FAQEC = () => {
                     '比較したい条件を選択し、右上のブックマークボタンからブックマークを作成します。',
                     'ブックマークを選択することで、条件を切り替えて比較することができます。'
                   ],
-                  images: [bookmark]
+                  images: <Youtube url='https://youtu.be/UkU-_vRcn5Q'/>
                 }
               ]
             },
@@ -111,7 +102,7 @@ const FAQEC = () => {
                     'ページ上部のフィルターパネルから絞り込みを行うことができます。',
                     'また、グラフの項目をクリックすることでも選択ができます。'
                   ],
-                  images: [filter]
+                  images: <Youtube url='https://youtu.be/MKXRpBXJ3r4'/>
                 },
                 {
                   summary: '過去3か月のデータを確認したい',
@@ -119,7 +110,7 @@ const FAQEC = () => {
                     '年月をクリックしたままドラッグすることで、範囲選択ができます。',
                     'さらに、選択した範囲をドラッグすることで、範囲の移動も可能です。'
                   ],
-                  images: [date]
+                  images: <Youtube url='https://youtu.be/yZjAi_Jdxp8'/>
                 },
                 {
                   summary: 'リピート数0以外の顧客を選択したい',
@@ -127,7 +118,7 @@ const FAQEC = () => {
                     '除外したい条件を選択後、上の選択バーをクリックします。',
                     'メニュー -> 除外値を選択で、最初に選択していた条件以外でフィルターがかかります。'
                   ],
-                  images: [exclude]
+                  images: <Youtube url='https://youtu.be/2_q079NLDnU'/>
                 }
               ]
             },
@@ -141,7 +132,7 @@ const FAQEC = () => {
                     'ページ上部の選択バーをご確認ください。',
                     '×ボタンで選択状態を解除します。'
                   ],
-                  images: [clear]
+                  images: <Youtube url='https://youtu.be/P7_QkVterJw'/>
                 },
                 {
                   summary: 'グラフが勝手に動いている',
@@ -161,7 +152,7 @@ const FAQEC = () => {
                     'グラフ上部のホバーメニュー -> 詳細を表示で、簡単な説明を見ることができます。',
                     '定義書でより詳しい情報が見られます。'
                   ],
-                  images: [define]
+                  images: <Youtube url='https://youtu.be/P94L5ESHfP0'/>
                 },
                 {
                   summary: '会議でグラフを共有したい',

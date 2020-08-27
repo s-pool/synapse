@@ -1,6 +1,6 @@
 
 import { Container, Grid, GridProps, Grow, Typography, useMediaQuery } from '@material-ui/core'
-import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles'
+import { createStyles, makeStyles, styled, Theme, useTheme } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import React from 'react'
 import LazyLoad from 'react-lazyload'
@@ -12,6 +12,29 @@ type RowPageProps = {
   split?: [GridProps['xs'], GridProps['xs']],
   reverse?: boolean
 }
+const Wrapper = styled('div')(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%'
+}))
+
+const ImageWrapper = styled('div')(({ theme }:{theme:Theme}) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 640,
+  height: 360,
+  [theme.breakpoints.down('sm')]: {
+    width: 480,
+    height: 270
+  },
+  [theme.breakpoints.down('xs')]: {
+    width: 224,
+    height: 126
+  }
+}))
 
 const useStyles = makeStyles((theme:Theme) => createStyles({
   root: {
@@ -62,7 +85,11 @@ const RowPage:React.FC<RowPageProps> = (props) => {
             height={window.innerWidth * 3 / 4}
           >
             <Grow in timeout={300}>
-              {props.image}
+              <Wrapper>
+                <ImageWrapper>
+                  {props.image}
+                </ImageWrapper>
+              </Wrapper>
             </Grow>
           </LazyLoad>
         </Grid>

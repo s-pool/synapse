@@ -4,8 +4,6 @@ import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/style
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import React from 'react'
 
-import { ImageBox } from '../molecules'
-
 type UUID = {
   uuid: string
 }
@@ -13,24 +11,36 @@ type UUID = {
 type AccordionItemProps = {
   summary: string,
   details: Array<string>,
-  images?: Array<string>
+  images?: React.ReactElement
 }
 
 type AccordionsProps = {
   items: Array<UUID & AccordionItemProps>
 }
 
-const Wrapper = styled('div')(() => ({
-
-}))
-
-const ImageWrapper = styled('div')(({ theme }:{theme:Theme}) => ({
+const Wrapper = styled('div')(({ theme }:{theme:Theme}) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   padding: theme.spacing(3),
   width: '100%',
   height: '100%'
+}))
+
+const ImageWrapper = styled('div')(({ theme }:{theme:Theme}) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 640,
+  height: 360,
+  [theme.breakpoints.down('sm')]: {
+    width: 480,
+    height: 270
+  },
+  [theme.breakpoints.down('xs')]: {
+    width: 224,
+    height: 126
+  }
 }))
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -77,7 +87,7 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
   }
 
   return (
-    <Wrapper>
+    <React.Fragment>
       {
         props.items.map((item) => (
           <Accordion className={classes.accordion} expanded={expanded === item.uuid} onChange={handleChange(item.uuid)} key={item.uuid}>
@@ -100,17 +110,18 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
                 })
               }
               {
-                (item.images)
-                  ? <ImageWrapper>
-                    <ImageBox items={item.images}/>
+                item.images &&
+                <Wrapper>
+                  <ImageWrapper>
+                    {item.images}
                   </ImageWrapper>
-                  : <></>
+                </Wrapper>
               }
             </AccordionDetails>
           </Accordion>
         ))
       }
-    </Wrapper>
+    </React.Fragment>
   )
 }
 
