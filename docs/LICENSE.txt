@@ -7,6 +7,7 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 * react-image-gallery
 * react-lazyload
 * react-meta-tags
+* react-player
 * react-router-dom
 * react-scroll
 * slash
