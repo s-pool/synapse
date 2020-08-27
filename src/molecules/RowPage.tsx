@@ -16,24 +16,7 @@ const Wrapper = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '100%',
-  height: '100%'
-}))
-
-const ImageWrapper = styled('div')(({ theme }:{theme:Theme}) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 640,
-  height: 360,
-  [theme.breakpoints.down('sm')]: {
-    width: 480,
-    height: 270
-  },
-  [theme.breakpoints.down('xs')]: {
-    width: 224,
-    height: 126
-  }
+  width: '100%'
 }))
 
 const useStyles = makeStyles((theme:Theme) => createStyles({
@@ -78,21 +61,22 @@ const RowPage:React.FC<RowPageProps> = (props) => {
         alignItems='center'
         spacing={10}
       >
-        <Grid item md={right} xs={12}>
-          <LazyLoad
-            once
-            debounce
-            height={window.innerWidth * 3 / 4}
-          >
-            <Grow in timeout={300}>
-              <Wrapper>
-                <ImageWrapper>
-                  {props.image}
-                </ImageWrapper>
-              </Wrapper>
-            </Grow>
-          </LazyLoad>
-        </Grid>
+        {
+          props.image &&
+            <Grid item md={right} xs={12}>
+              <LazyLoad
+                once
+                debounce
+                height={window.innerWidth * 3 / 4}
+              >
+                <Grow in timeout={300}>
+                  <Wrapper>
+                    {props.image}
+                  </Wrapper>
+                </Grow>
+              </LazyLoad>
+            </Grid>
+        }
         <Grid item md={left} xs={12}>
           <Grid
             container

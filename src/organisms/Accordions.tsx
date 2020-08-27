@@ -23,24 +23,7 @@ const Wrapper = styled('div')(({ theme }:{theme:Theme}) => ({
   alignItems: 'center',
   justifyContent: 'center',
   padding: theme.spacing(3),
-  width: '100%',
-  height: '100%'
-}))
-
-const ImageWrapper = styled('div')(({ theme }:{theme:Theme}) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 640,
-  height: 360,
-  [theme.breakpoints.down('sm')]: {
-    width: 480,
-    height: 270
-  },
-  [theme.breakpoints.down('xs')]: {
-    width: 224,
-    height: 126
-  }
+  width: '100%'
 }))
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -112,9 +95,7 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
               {
                 item.images &&
                 <Wrapper>
-                  <ImageWrapper>
-                    {item.images}
-                  </ImageWrapper>
+                  {item.images}
                 </Wrapper>
               }
             </AccordionDetails>
