@@ -3,9 +3,11 @@ import React from 'react'
 import MetaTags from 'react-meta-tags'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import mockup from '../assets/image/demo_mockup.png'
-import demo from '../assets/image/demo.png'
-import { Youtube } from '../molecules'
+import demo from '../assets/image/demo1.png'
+import mockup from '../assets/image/mockup.png'
+import mockup2 from '../assets/image/mockup2.png'
+import mockup3 from '../assets/image/mockup3.png'
+import { Gallery, Youtube } from '../molecules'
 import { PR } from '../organisms'
 import { appbarProps } from '../pages'
 
@@ -30,7 +32,7 @@ const Home = () => {
               body: `データ分析プラットフォーム
             「Synapse」
             `,
-              image: <img src={mockup} height='auto' width='100%' alt=''/>
+              image: <Gallery items={[mockup, mockup2, mockup3]} showBullets={false} showNav={false} autoPlay onClick={(e:any) => { e.stopPropagation() }}/>
             },
             {
               subtitle: 'データをつなぐ、人とつなぐ。',

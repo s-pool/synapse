@@ -32,10 +32,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     bottom: 0
   },
   overlay: {
-    '&:hover > div': {
-      boxShadow: theme.shadows[8],
-      '& svg': {
-        fill: red[500]
+    transition: theme.transitions.create('all'),
+    '&:hover': {
+      background: 'rgba(0,0,0,0.08)',
+      '& div': {
+        boxShadow: theme.shadows[8],
+        '& svg': {
+          fill: red[500]
+        }
       }
     }
   },
@@ -47,9 +51,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     transition: theme.transitions.create('all'),
     boxShadow: theme.shadows[4],
     borderRadius: '50%',
-    background: fade(theme.palette.common.white, 0.54),
-    width: 'calc(4rem - 10px)',
-    height: 'calc(4rem - 10px)',
+    background: fade(theme.palette.common.white, 0.7),
+    width: 'calc(4rem - 12px)',
+    height: 'calc(4rem - 12px)',
     overflow: 'visible'
   }
 }))
@@ -77,10 +81,9 @@ const Youtube:React.FC<YoutubeProps> = ({ url, ...props }) => {
             {
               youtube: {
                 playerVars: {
-                  modestbranding: 1,
-                  playsinline: 1,
                   rel: 0,
-                  autoplay: 1
+                  autoplay: 1,
+                  controls: 1
                 }
               }
             }

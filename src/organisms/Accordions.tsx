@@ -1,8 +1,9 @@
 
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core'
+import { Accordion, AccordionDetails, AccordionSummary, Box, CircularProgress, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme } from '@material-ui/core/styles'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 type UUID = {
   uuid: string
@@ -94,9 +95,20 @@ const Accordions:React.FC<AccordionsProps> = (props) => {
               }
               {
                 item.images &&
-                <Wrapper>
-                  {item.images}
-                </Wrapper>
+                <LazyLoad
+                  once
+                  height={360}
+                  placeholder={
+                    <Box display='flex' justifyContent='center' alignItems='center' height={400} bgcolor='rgba(0,0,0,0.04)' margin={2}>
+                      <CircularProgress/>
+                    </Box>
+                  }
+                  debounce
+                >
+                  <Wrapper>
+                    {item.images}
+                  </Wrapper>
+                </LazyLoad>
               }
             </AccordionDetails>
           </Accordion>

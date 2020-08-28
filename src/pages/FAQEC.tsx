@@ -9,7 +9,7 @@ import flag from '../assets/icon/outlined_flag.svg'
 import mouth from '../assets/icon/pest_control_rodent.svg'
 import apps from '../assets/icon/touch_app.svg'
 import gamen from '../assets/image/gamen.png'
-import { ImageBox, Youtube } from '../molecules'
+import { Gallery, Youtube } from '../molecules'
 import { FAQ } from '../organisms'
 import { appbarProps } from '../pages'
 
@@ -60,7 +60,7 @@ const FAQEC = () => {
                     '選択した項目は①の選択パネルに表示され、ここから追加、削除が行えます。',
                     '②はページ切り替え、③はフィルター操作パネルです。'
                   ],
-                  images: <ImageBox items={[gamen]}/>
+                  images: <Gallery items={[gamen]}/>
                 }
               ]
             },

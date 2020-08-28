@@ -67,7 +67,7 @@ const RowPage:React.FC<RowPageProps> = (props) => {
               <LazyLoad
                 once
                 debounce
-                height={window.innerWidth * 3 / 4}
+                height={360}
               >
                 <Grow in timeout={300}>
                   <Wrapper>

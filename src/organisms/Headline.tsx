@@ -1,7 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Grow, Typography, useMediaQuery } from '@material-ui/core'
 import { createStyles, makeStyles, styled, Theme, useTheme } from '@material-ui/core/styles'
 import React from 'react'
-import LazyLoad from 'react-lazyload'
 
 import { ColumnPage, ColumnPageProps, Fluid } from '../molecules'
 
@@ -95,26 +94,21 @@ const Headline:React.FC<HeadlineProps> = (props) => {
               console.log('card map')
               return (
                 <Grid item xs={12} sm={6} md={4} key={`card-${card.uuid}`} >
-                  <LazyLoad
-                    once
-                    debounce
-                  >
-                    <Grow in timeout={300 * i} >
-                      <Card className={classes.card}>
-                        <CardActionArea onClick={() => props.onClickCard(card.uuid)}>
-                          <CardMedia
-                            className={classes.cardMedia}
-                            image={card.image || 'https://source.unsplash.com/random/' + i}
-                          />
-                          <CardContent className={classes.cardContent}>
-                            <Caption>
-                              {card.subtitle}
-                            </Caption>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grow>
-                  </LazyLoad>
+                  <Grow in timeout={300 * i} >
+                    <Card className={classes.card}>
+                      <CardActionArea onClick={() => props.onClickCard(card.uuid)}>
+                        <CardMedia
+                          className={classes.cardMedia}
+                          image={card.image || 'https://source.unsplash.com/random/' + i}
+                        />
+                        <CardContent className={classes.cardContent}>
+                          <Caption>
+                            {card.subtitle}
+                          </Caption>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  </Grow>
                 </Grid>
               )
             })
