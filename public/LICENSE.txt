@@ -4,13 +4,12 @@ MIT LICENSE | https://opensource.org/licenses/MIT
 
 * material-ui
 * react
+* react-helmet
 * react-image-gallery
 * react-lazyload
-* react-meta-tags
 * react-player
 * react-router-dom
 * react-scroll
-* slash
 * uuid
 
 Apache License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0

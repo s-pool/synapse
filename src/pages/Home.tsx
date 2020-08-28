@@ -1,9 +1,9 @@
 import { useTheme } from '@material-ui/core/styles'
 import React from 'react'
-import MetaTags from 'react-meta-tags'
+import { Helmet } from 'react-helmet'
 
 import bigdata from '../assets/image/bigdata.jpg'
-import demo from '../assets/image/demo1.png'
+import thumbnail from '../assets/image/demo_thumbnail.png'
 import mockup from '../assets/image/mockup.png'
 import mockup2 from '../assets/image/mockup2.png'
 import mockup3 from '../assets/image/mockup3.png'
@@ -16,10 +16,10 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <MetaTags>
+      <Helmet>
         <title>エスプール Synapse - データ分析プラットフォーム</title>
         <meta name='description' content='つなぐ、見える、伝わる。データ分析プラットフォーム「Synapse」' />
-      </MetaTags>
+      </Helmet>
       <PR
         appbar={{
           ...appbarProps,
@@ -49,7 +49,7 @@ const Home = () => {
               body: `Synapseは直観的でインタラクティブなインターフェース。
               あなたの探求を妨げません。
             `,
-              image: <Youtube url='https://youtu.be/lTgSW7qU3UA' light={demo}/>
+              image: <Youtube url='https://youtu.be/lTgSW7qU3UA' light={thumbnail}/>
             }
           ]
         }

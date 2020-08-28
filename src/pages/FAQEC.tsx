@@ -1,6 +1,6 @@
 import { blueGrey, grey } from '@material-ui/core/colors'
 import React from 'react'
-import MetaTags from 'react-meta-tags'
+import { Helmet } from 'react-helmet'
 
 import light from '../assets/icon/emoji_objects.svg'
 import help from '../assets/icon/help.svg'
@@ -8,7 +8,7 @@ import chart from '../assets/icon/insert_chart.svg'
 import flag from '../assets/icon/outlined_flag.svg'
 import mouth from '../assets/icon/pest_control_rodent.svg'
 import apps from '../assets/icon/touch_app.svg'
-import gamen from '../assets/image/gamen.png'
+import layout from '../assets/image/layout.png'
 import { Gallery, Youtube } from '../molecules'
 import { FAQ } from '../organisms'
 import { appbarProps } from '../pages'
@@ -16,10 +16,10 @@ import { appbarProps } from '../pages'
 const FAQEC = () => {
   return (
     <React.Fragment>
-      <MetaTags>
+      <Helmet>
         <title>FAQ | エスプール Synapse</title>
         <meta name='description' content='Synapseの使い方について、よくある質問と回答(FAQ)をまとめました。' />
-      </MetaTags>
+      </Helmet>
       <FAQ
         appbar={{
           ...appbarProps,
@@ -60,7 +60,7 @@ const FAQEC = () => {
                     '選択した項目は①の選択パネルに表示され、ここから追加、削除が行えます。',
                     '②はページ切り替え、③はフィルター操作パネルです。'
                   ],
-                  images: <Gallery items={[gamen]}/>
+                  images: <Gallery items={[layout]}/>
                 }
               ]
             },

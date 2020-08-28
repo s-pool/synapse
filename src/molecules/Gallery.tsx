@@ -103,7 +103,7 @@ const Gallery:React.FC<GalleryProps & ReactImageGalleryProps> = ({ items, ...pro
         showThumbnails={false}
         showFullscreenButton={false}
         slideDuration={300}
-        slideInterval={4000}
+        slideInterval={5000}
         renderLeftNav={
           (onClick) => {
             const f = (e: any) => {

@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core'
 import { blueGrey, grey } from '@material-ui/core/colors'
 import { styled, Theme } from '@material-ui/core/styles'
 import React from 'react'
-import MetaTags from 'react-meta-tags'
+import { Helmet } from 'react-helmet'
 
 import { Fluid, StyledAppBar } from '../molecules'
 import { appbarProps } from '../pages'
@@ -30,10 +30,10 @@ const BgLayer = styled('div')(({ theme, bgcolor }:{theme:Theme, bgcolor?: string
 const Blank:React.FC = () => {
   return (
     <React.Fragment>
-      <MetaTags>
+      <Helmet>
         <title>エスプール Synapse - データ分析プラットフォーム</title>
         <meta name='description' content='つなぐ、見える、伝わる。データ分析プラットフォーム「Synapse」' />
-      </MetaTags>
+      </Helmet>
       <StyledAppBar
         {...appbarProps}
         fontcolor={grey[50]}
