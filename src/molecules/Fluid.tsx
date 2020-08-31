@@ -88,22 +88,9 @@ const Fluid:React.FC<FluidProps> = (props) => {
   const [height, setHeight] = React.useState(window.innerHeight * 0.75)
 
   React.useEffect(() => {
-    if (typeof (props.height) === 'number') {
-      return undefined
+    if (typeof (props.height) !== 'number') {
+      ref.current && setHeight(ref.current?.clientHeight * 0.75)
     }
-
-    const handleResize = () => {
-      ref.current &&
-        setHeight(ref.current?.clientHeight * 0.75)
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    handleResize()
-
-    return (
-      () => window.removeEventListener('resize', handleResize)
-    )
   }, [props.height])
 
   return (

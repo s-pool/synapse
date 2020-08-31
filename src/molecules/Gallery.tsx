@@ -93,7 +93,8 @@ const Gallery:React.FC<GalleryProps & ReactImageGalleryProps> = ({ items, ...pro
           items.map((src) => {
             return (
               {
-                original: src
+                original: src,
+                originalAlt: ''
               }
             )
           })

@@ -92,7 +92,7 @@ const StyledAppBar:React.FC<StyledAppBarProps> = (props) => {
                 }
               </Box>
               : <React.Fragment>
-                <IconButton onClick={() => setOpen(!open)} color='inherit' className={classes.menu} >
+                <IconButton aria-label='menu' onClick={() => setOpen(!open)} color='inherit' className={classes.menu} >
                   <MenuIcon/>
                 </IconButton>
                 <Drawer
