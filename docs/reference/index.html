@@ -1,1288 +1,1358 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>definition.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <title>definition.md</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-<style>
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto+Mono&family=Roboto:wght@400;500&display=swap);
+  <style>
+    @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto+Mono&family=Roboto:wght@400;500&display=swap);
 
-html {
-    background-color: #fafafa
-}
+    html {
+      background-color: #fafafa
+    }
 
-body {
-    background-color: #fff;
-    box-sizing: border-box;
-    min-width: 1012px;
-    max-width: 1012px;
-    margin: 16px auto;
-    padding: 40px 48px;
-    border: 1px solid #d1d5da;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    font-family: "Roboto","Noto Sans JP",sans-serif;
-    font-weight: 400;
-    text-rendering: optimizelegibility;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    color: #24292e;
-    font-size: 16px;
-    line-height: 1.5;
-    word-wrap: break-word
-}
-body pre{
-  background-color: #1e1e1e !important;
-}
-code {
-  color: #fafafa;
-}
-body code,body pre {
-  font-family: 'Roboto Mono','Source Han Sans',源ノ角ゴシック,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace
-}
+    .markdown {
+      background-color: #fff;
+      box-sizing: border-box;
+      min-width: 1012px;
+      max-width: 1012px;
+      margin: 16px auto;
+      padding: 40px 48px;
+      border: 1px solid #d1d5da;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      font-family: "Roboto", "Noto Sans JP", sans-serif;
+      font-weight: 400;
+      text-rendering: optimizelegibility;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      color: #24292e;
+      font-size: 16px;
+      line-height: 1.5;
+      word-wrap: break-word
+    }
 
-body li {
-  line-height: 1.75 !important;
-  margin-top: 0.375em !important;
-}
+    .markdown pre {
+      background-color: #1e1e1e !important;
+    }
 
-body .octicon {
-    display: inline-block;
-    fill: currentColor;
-    vertical-align: text-bottom
-}
+    code {
+      color: #fafafa;
+    }
 
-body .anchor {
-    float: left;
-    line-height: 1;
-    margin-left: -20px;
-    padding-right: 4px
-}
+    .markdown code,
+    .markdown pre {
+      font-family: 'Roboto Mono', 'Source Han Sans', 源ノ角ゴシック, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace
+    }
 
-body .anchor:focus {
-    outline: 0
-}
+    .markdown li {
+      line-height: 1.75 !important;
+      margin-top: 0.375em !important;
+    }
 
-body h1 .octicon-link,body h2 .octicon-link,body h3 .octicon-link,body h4 .octicon-link,body h5 .octicon-link,body h6 .octicon-link {
-    color: #1b1f23;
-    vertical-align: middle;
-    visibility: hidden
-}
+    .markdown .octicon {
+      display: inline-block;
+      fill: currentColor;
+      vertical-align: text-bottom
+    }
 
-body a,body h1:hover .anchor,body h2:hover .anchor,body h3:hover .anchor,body h4:hover .anchor,body h5:hover .anchor,body h6:hover .anchor {
-    text-decoration: none
-}
+    .markdown .anchor {
+      float: left;
+      line-height: 1;
+      margin-left: -20px;
+      padding-right: 4px
+    }
 
-body h1:hover .anchor .octicon-link,body h2:hover .anchor .octicon-link,body h3:hover .anchor .octicon-link,body h4:hover .anchor .octicon-link,body h5:hover .anchor .octicon-link,body h6:hover .anchor .octicon-link {
-    visibility: visible
-}
+    .markdown .anchor:focus {
+      outline: 0
+    }
 
-body h1:hover .anchor .octicon-link:before,body h2:hover .anchor .octicon-link:before,body h3:hover .anchor .octicon-link:before,body h4:hover .anchor .octicon-link:before,body h5:hover .anchor .octicon-link:before,body h6:hover .anchor .octicon-link:before {
-    width: 16px;
-    height: 16px;
-    content: ' ';
-    display: inline-block;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E")
-}
+    .markdown h1 .octicon-link,
+    .markdown h2 .octicon-link,
+    .markdown h3 .octicon-link,
+    .markdown h4 .octicon-link,
+    .markdown h5 .octicon-link,
+    .markdown h6 .octicon-link {
+      color: #1b1f23;
+      vertical-align: middle;
+      visibility: hidden
+    }
 
-body details {
-    display: block
-}
+    .markdown a,
+    .markdown h1:hover .anchor,
+    .markdown h2:hover .anchor,
+    .markdown h3:hover .anchor,
+    .markdown h4:hover .anchor,
+    .markdown h5:hover .anchor,
+    .markdown h6:hover .anchor {
+      text-decoration: none
+    }
 
-body summary {
-    display: list-item
-}
+    .markdown h1:hover .anchor .octicon-link,
+    .markdown h2:hover .anchor .octicon-link,
+    .markdown h3:hover .anchor .octicon-link,
+    .markdown h4:hover .anchor .octicon-link,
+    .markdown h5:hover .anchor .octicon-link,
+    .markdown h6:hover .anchor .octicon-link {
+      visibility: visible
+    }
 
-body a {
-    background-color: initial;
-    color: #0366d6
-}
+    .markdown h1:hover .anchor .octicon-link:before,
+    .markdown h2:hover .anchor .octicon-link:before,
+    .markdown h3:hover .anchor .octicon-link:before,
+    .markdown h4:hover .anchor .octicon-link:before,
+    .markdown h5:hover .anchor .octicon-link:before,
+    .markdown h6:hover .anchor .octicon-link:before {
+      width: 16px;
+      height: 16px;
+      content: ' ';
+      display: inline-block;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E")
+    }
 
-body a:active,body a:hover {
-    outline-width: 0
-}
+    .markdown details {
+      display: block
+    }
 
-body h1 {
-    margin: .67em 0
-}
+    .markdown summary {
+      display: list-item
+    }
 
-body hr,body img {
-    box-sizing: initial
-}
+    .markdown a {
+      background-color: initial;
+      color: #0366d6
+    }
 
-body img {
-    border-style: none;
-    max-width: 100%;
-    background-color: #fff
-}
+    .markdown a:active,
+    .markdown a:hover {
+      outline-width: 0
+    }
 
-body hr {
-    overflow: hidden;
-    background: 0 0;
-    height: .25em;
-    margin: 24px 0;
-    background-color: #e1e4e8;
-    border: 0
-}
+    .markdown h1 {
+      margin: .67em 0
+    }
 
-body input {
-    font: inherit;
-    margin: 0;
-    overflow: visible;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit
-}
+    .markdown hr,
+    .markdown img {
+      box-sizing: initial
+    }
 
-body [type=checkbox] {
-    padding: 0
-}
+    .markdown img {
+      border-style: none;
+      max-width: 100%;
+      background-color: #fff
+    }
 
-body *,body [type=checkbox] {
-    box-sizing: border-box
-}
+    .markdown hr {
+      overflow: hidden;
+      background: 0 0;
+      height: .25em;
+      margin: 24px 0;
+      background-color: #e1e4e8;
+      border: 0
+    }
 
-body a:hover {
-    text-decoration: underline
-}
+    .markdown input {
+      font: inherit;
+      margin: 0;
+      overflow: visible;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit
+    }
 
-body hr:after,body hr:before,body:after,body:before {
-    display: table;
-    content: ""
-}
+    .markdown [type=checkbox] {
+      padding: 0
+    }
 
-body hr:after,body:after {
-    clear: both
-}
+    .markdown *,
+    .markdown [type=checkbox] {
+      box-sizing: border-box
+    }
 
-body table {
-    border-spacing: 0;
-    border-collapse: collapse
-}
+    .markdown a:hover {
+      text-decoration: underline
+    }
 
-body hr,body td,body th {
-    padding: 0
-}
+    .markdown hr:after,
+    .markdown hr:before,
+    .markdown:after,
+    .markdown:before {
+      display: table;
+      content: ""
+    }
 
-body details summary {
-    cursor: pointer
-}
+    .markdown hr:after,
+    .markdown:after {
+      clear: both
+    }
 
-body kbd {
-    display: inline-block;
-    padding: 3px 5px;
-    font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    line-height: 10px;
-    color: #444d56;
-    vertical-align: middle;
-    background-color: #fafbfc;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-    box-shadow: inset 0 -1px 0 #d1d5da
-}
+    .markdown table {
+      border-spacing: 0;
+      border-collapse: collapse
+    }
 
-body strong,body table th {
-    font-weight: 500
-}
+    .markdown hr,
+    .markdown td,
+    .markdown th {
+      padding: 0
+    }
 
-body blockquote {
-    margin: 0
-}
+    .markdown details summary {
+      cursor: pointer
+    }
 
-body ol ol,body ul ol {
-    list-style-type: lower-roman
-}
+    .markdown kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      line-height: 10px;
+      color: #444d56;
+      vertical-align: middle;
+      background-color: #fafbfc;
+      border: 1px solid #d1d5da;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #d1d5da
+    }
 
-body ol ol ol,body ol ul ol,body ul ol ol,body ul ul ol {
-    list-style-type: lower-alpha
-}
+    .markdown strong,
+    .markdown table th {
+      font-weight: 500
+    }
 
-body dd {
-    margin-left: 0
-}
+    .markdown blockquote {
+      margin: 0
+    }
 
-/*
-body code,body pre {
+    .markdown ol ol,
+    .markdown ul ol {
+      list-style-type: lower-roman
+    }
+
+    .markdown ol ol ol,
+    .markdown ol ul ol,
+    .markdown ul ol ol,
+    .markdown ul ul ol {
+      list-style-type: lower-alpha
+    }
+
+    .markdown dd {
+      margin-left: 0
+    }
+
+    /*
+.markdown code,.markdown pre {
     font-family: 'Roboto Mono','Source Han Sans',源ノ角ゴシック,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace
 }
 */
 
-body ol ol,body ol ul,body ul ol,body ul ul {
-    margin-top: 0;
-    margin-bottom: 0
-}
-
-body input::-webkit-inner-spin-button,body input::-webkit-outer-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
-    appearance: none
-}
-
-body :checked+.radio-label {
-    position: relative;
-    z-index: 1;
-    border-color: #0366d6
-}
-
-body .border {
-    border: 1px solid #e1e4e8!important
-}
-
-body .border-0 {
-    border: 0!important
-}
-
-body .border-bottom {
-    border-bottom: 1px solid #e1e4e8!important
-}
-
-body .rounded-1 {
-    border-radius: 3px!important
-}
-
-body .bg-white {
-    background-color: #fff!important
-}
-
-body .bg-gray-light {
-    background-color: #fafbfc!important
-}
-
-body .text-gray-light {
-    color: #6a737d!important
-}
-
-body .px-3 {
-    padding-left: 16px!important;
-    padding-right: 16px!important
-}
-
-body .f6 {
-    font-size: 12px!important
-}
-
-body .lh-condensed {
-    line-height: 1.25!important
-}
-
-body .text-bold {
-    font-weight: 500!important
-}
-
-body .pl-c {
-    color: #6a737d
-}
-
-body .pl-c1,body .pl-s .pl-v {
-    color: #005cc5
-}
-
-body .pl-e,body .pl-en {
-    color: #6f42c1
-}
-
-body .pl-s .pl-s1,body .pl-smi {
-    color: #24292e
-}
-
-body .pl-ent {
-    color: #22863a
-}
-
-body .pl-k {
-    color: #d73a49
-}
-
-body .pl-pds,body .pl-s,body .pl-s .pl-pse .pl-s1,body .pl-sr,body .pl-sr .pl-sra,body .pl-sr .pl-sre {
-    color: #032f62
-}
-
-body .pl-smw,body .pl-v {
-    color: #e36209
-}
-
-body .pl-bu {
-    color: #b31d28
-}
-
-body .pl-c2,body .pl-ii {
-    color: #fafbfc;
-    background-color: #b31d28
-}
-
-body .pl-c2 {
-    background-color: #d73a49
-}
-
-body .pl-c2:before {
-    content: "^M"
-}
-
-body .pl-sr .pl-cce {
-    font-weight: 500;
-    color: #22863a
-}
-
-body .pl-ml {
-    color: #735c0f
-}
-
-body .pl-mh,body .pl-mh .pl-en,body .pl-ms {
-    font-weight: 500;
-    color: #005cc5
-}
-
-body .pl-mi {
-    font-style: italic;
-    color: #24292e
-}
-
-body .pl-mb {
-    font-weight: 500;
-    color: #24292e
-}
-
-body .pl-md {
-    color: #b31d28;
-    background-color: #ffeef0
-}
-
-body .pl-mi1 {
-    color: #22863a;
-    background-color: #f0fff4
-}
-
-body .pl-mc {
-    color: #e36209;
-    background-color: #ffebda
-}
-
-body .pl-mi2 {
-    color: #f6f8fa;
-    background-color: #005cc5
-}
-
-body .pl-mdr {
-    font-weight: 500;
-    color: #6f42c1
-}
-
-body .pl-ba {
-    color: #586069
-}
-
-body .pl-sg {
-    color: #959da5
-}
-
-body .pl-corl {
-    text-decoration: underline;
-    color: #032f62
-}
-
-body .mb-0 {
-    margin-bottom: 0!important
-}
-
-body .my-2 {
-    margin-bottom: 8px!important;
-    margin-top: 8px!important
-}
-
-body .pl-0 {
-    padding-left: 0!important
-}
-
-body .py-0 {
-    padding-top: 0!important;
-    padding-bottom: 0!important
-}
-
-body .pl-1 {
-    padding-left: 4px!important
-}
-
-body .pl-2 {
-    padding-left: 8px!important
-}
-
-body .py-2 {
-    padding-top: 8px!important;
-    padding-bottom: 8px!important
-}
-
-body .pl-3 {
-    padding-left: 16px!important
-}
-
-body .pl-4 {
-    padding-left: 24px!important
-}
-
-body .pl-5 {
-    padding-left: 32px!important
-}
-
-body .pl-6 {
-    padding-left: 40px!important
-}
-
-body .pl-7 {
-    padding-left: 48px!important
-}
-
-body .pl-8 {
-    padding-left: 64px!important
-}
-
-body .pl-9 {
-    padding-left: 80px!important
-}
-
-body .pl-10 {
-    padding-left: 96px!important
-}
-
-body .pl-11 {
-    padding-left: 112px!important
-}
-
-body .pl-12 {
-    padding-left: 128px!important
-}
-
-body>:first-child {
-    margin-top: 0!important
-}
-
-body>:last-child {
-    margin-bottom: 0!important
-}
-
-body a:not([href]) {
-    color: inherit;
-    text-decoration: none
-}
-
-body blockquote,body details,body dl,body ol,body p,body pre,body table,body ul {
-    margin-top: 0;
-    margin-bottom: 16px
-}
-
-body blockquote {
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: .25em solid #dfe2e5
-}
-
-body blockquote>:first-child {
-    margin-top: 0
-}
-
-body blockquote>:last-child {
-    margin-bottom: 0
-}
-
-body h1,body h2,body h3,body h4,body h5,body h6 {
-    margin-top: 24px;
-    margin-bottom: 16px;
-    font-weight: 500;
-    line-height: 1.25
-}
-
-body h1,body h2 {
-    font-size: 2em;
-    padding-bottom: .3em;
-    border-bottom: 1px solid #eaecef
-}
-
-body h2 {
-    font-size: 1.5em
-}
-
-body h3 {
-    font-size: 1.25em
-}
-
-body h4 {
-    font-size: 1em
-}
-
-body h5 {
-    font-size: .875em
-}
-
-body h6 {
-    font-size: .85em;
-    color: #6a737d
-}
-
-body ol,body ul {
-    padding-left: 2em
-}
-
-body li {
-    word-wrap: break-all
-}
-
-body dl dt,body li>p {
-    margin-top: 16px
-}
-
-body li+li {
-    margin-top: .25em
-}
-
-body dl {
-    padding: 0
-}
-
-body dl dt {
-    padding: 0;
-    font-size: 1em;
-    font-style: italic;
-    font-weight: 500
-}
-
-body dl dd {
-    padding: 0 16px;
-    margin-bottom: 16px
-}
-
-body table {
-    display: block;
-    width: 100%;
-    overflow: auto
-}
-
-body table td,body table th {
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5
-}
-
-body table tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1
-}
-
-body table tr:nth-child(2n) {
-    background-color: #f6f8fa
-}
-
-body img[align=right] {
-    padding-left: 20px
-}
-
-body img[align=left] {
-    padding-right: 20px
-}
-
-body code {
-    padding: .2em .4em;
-    margin: 0;
-    font-size: 85%;
-    background-color: rgba(27,31,35,.05);
-    border-radius: 3px
-}
-
-body pre {
-    word-wrap: normal
-}
-
-body pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 100%;
-    word-break: normal;
-    white-space: pre;
-    background: 0 0;
-    border: 0
-}
-
-body .highlight {
-    margin-bottom: 16px
-}
-
-body .highlight pre {
-    margin-bottom: 0;
-    word-break: normal
-}
-
-body .highlight pre,body pre {
-    padding: 16px;
-    overflow: auto;
-    font-size: 85%;
-    line-height: 1.45;
-/*  background-color: #f6f8fa; */
-    border-radius: 3px
-}
-
-body pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: initial;
-    border: 0
-}
-
-body .commit-tease-sha {
-    display: inline-block;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    font-size: 90%;
-    color: #444d56
-}
-
-body .full-commit .btn-outline:not(:disabled):hover {
-    color: #005cc5;
-    border-color: #005cc5
-}
-
-body .blob-wrapper {
-    overflow-x: auto;
-    overflow-y: hidden
-}
-
-body .blob-wrapper-embedded {
-    max-height: 240px;
-    overflow-y: auto
-}
-
-body .blob-code,body .blob-num {
-    padding-right: 10px;
-    padding-left: 10px;
-    line-height: 20px;
-    vertical-align: top
-}
-
-body .blob-num {
-    width: 1%;
-    min-width: 50px;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    font-size: 12px;
-    color: rgba(27,31,35,.3);
-    text-align: right;
-    white-space: nowrap;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none
-}
-
-body .blob-num:hover {
-    color: rgba(27,31,35,.6)
-}
-
-body .blob-num:before {
-    content: attr(data-line-number)
-}
-
-body .blob-code {
-    position: relative
-}
-
-body .blob-code-inner {
-    overflow: visible;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    font-size: 12px;
-    color: #24292e;
-    word-wrap: normal;
-    white-space: pre
-}
-
-body .pl-token.active,body .pl-token:hover {
-    cursor: pointer;
-    background: #ffea7f
-}
-
-body .tab-size[data-tab-size="1"] {
-    -moz-tab-size: 1;
-    tab-size: 1
-}
-
-body .tab-size[data-tab-size="2"] {
-    -moz-tab-size: 2;
-    tab-size: 2
-}
-
-body .tab-size[data-tab-size="3"] {
-    -moz-tab-size: 3;
-    tab-size: 3
-}
-
-body .tab-size[data-tab-size="4"] {
-    -moz-tab-size: 4;
-    tab-size: 4
-}
-
-body .tab-size[data-tab-size="5"] {
-    -moz-tab-size: 5;
-    tab-size: 5
-}
-
-body .tab-size[data-tab-size="6"] {
-    -moz-tab-size: 6;
-    tab-size: 6
-}
-
-body .tab-size[data-tab-size="7"] {
-    -moz-tab-size: 7;
-    tab-size: 7
-}
-
-body .tab-size[data-tab-size="8"] {
-    -moz-tab-size: 8;
-    tab-size: 8
-}
-
-body .tab-size[data-tab-size="9"] {
-    -moz-tab-size: 9;
-    tab-size: 9
-}
-
-body .tab-size[data-tab-size="10"] {
-    -moz-tab-size: 10;
-    tab-size: 10
-}
-
-body .tab-size[data-tab-size="11"] {
-    -moz-tab-size: 11;
-    tab-size: 11
-}
-
-body .tab-size[data-tab-size="12"] {
-    -moz-tab-size: 12;
-    tab-size: 12
-}
-
-body .task-list-item {
-    list-style-type: none
-}
-
-body .task-list-item+.task-list-item {
-    margin-top: 3px
-}
-
-body .task-list-item input {
-    margin: 0 .2em .25em -1.6em;
-    vertical-align: middle
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    .markdown ol ol,
+    .markdown ol ul,
+    .markdown ul ol,
+    .markdown ul ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    .markdown input::-webkit-inner-spin-button,
+    .markdown input::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+      appearance: none
+    }
+
+    .markdown :checked+.radio-label {
+      position: relative;
+      z-index: 1;
+      border-color: #0366d6
+    }
+
+    .markdown .border {
+      border: 1px solid #e1e4e8 !important
+    }
+
+    .markdown .border-0 {
+      border: 0 !important
+    }
+
+    .markdown .border-bottom {
+      border-bottom: 1px solid #e1e4e8 !important
+    }
+
+    .markdown .rounded-1 {
+      border-radius: 3px !important
+    }
+
+    .markdown .bg-white {
+      background-color: #fff !important
+    }
+
+    .markdown .bg-gray-light {
+      background-color: #fafbfc !important
+    }
+
+    .markdown .text-gray-light {
+      color: #6a737d !important
+    }
+
+    .markdown .px-3 {
+      padding-left: 16px !important;
+      padding-right: 16px !important
+    }
+
+    .markdown .f6 {
+      font-size: 12px !important
+    }
+
+    .markdown .lh-condensed {
+      line-height: 1.25 !important
+    }
+
+    .markdown .text-bold {
+      font-weight: 500 !important
+    }
+
+    .markdown .pl-c {
+      color: #6a737d
+    }
+
+    .markdown .pl-c1,
+    .markdown .pl-s .pl-v {
+      color: #005cc5
+    }
+
+    .markdown .pl-e,
+    .markdown .pl-en {
+      color: #6f42c1
+    }
+
+    .markdown .pl-s .pl-s1,
+    .markdown .pl-smi {
+      color: #24292e
+    }
+
+    .markdown .pl-ent {
+      color: #22863a
+    }
+
+    .markdown .pl-k {
+      color: #d73a49
+    }
+
+    .markdown .pl-pds,
+    .markdown .pl-s,
+    .markdown .pl-s .pl-pse .pl-s1,
+    .markdown .pl-sr,
+    .markdown .pl-sr .pl-sra,
+    .markdown .pl-sr .pl-sre {
+      color: #032f62
+    }
+
+    .markdown .pl-smw,
+    .markdown .pl-v {
+      color: #e36209
+    }
+
+    .markdown .pl-bu {
+      color: #b31d28
+    }
+
+    .markdown .pl-c2,
+    .markdown .pl-ii {
+      color: #fafbfc;
+      background-color: #b31d28
+    }
+
+    .markdown .pl-c2 {
+      background-color: #d73a49
+    }
+
+    .markdown .pl-c2:before {
+      content: "^M"
+    }
+
+    .markdown .pl-sr .pl-cce {
+      font-weight: 500;
+      color: #22863a
+    }
+
+    .markdown .pl-ml {
+      color: #735c0f
+    }
+
+    .markdown .pl-mh,
+    .markdown .pl-mh .pl-en,
+    .markdown .pl-ms {
+      font-weight: 500;
+      color: #005cc5
+    }
+
+    .markdown .pl-mi {
+      font-style: italic;
+      color: #24292e
+    }
+
+    .markdown .pl-mb {
+      font-weight: 500;
+      color: #24292e
+    }
+
+    .markdown .pl-md {
+      color: #b31d28;
+      background-color: #ffeef0
+    }
+
+    .markdown .pl-mi1 {
+      color: #22863a;
+      background-color: #f0fff4
+    }
+
+    .markdown .pl-mc {
+      color: #e36209;
+      background-color: #ffebda
+    }
+
+    .markdown .pl-mi2 {
+      color: #f6f8fa;
+      background-color: #005cc5
+    }
+
+    .markdown .pl-mdr {
+      font-weight: 500;
+      color: #6f42c1
+    }
+
+    .markdown .pl-ba {
+      color: #586069
+    }
+
+    .markdown .pl-sg {
+      color: #959da5
+    }
+
+    .markdown .pl-corl {
+      text-decoration: underline;
+      color: #032f62
+    }
+
+    .markdown .mb-0 {
+      margin-bottom: 0 !important
+    }
+
+    .markdown .my-2 {
+      margin-bottom: 8px !important;
+      margin-top: 8px !important
+    }
+
+    .markdown .pl-0 {
+      padding-left: 0 !important
+    }
+
+    .markdown .py-0 {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important
+    }
+
+    .markdown .pl-1 {
+      padding-left: 4px !important
+    }
+
+    .markdown .pl-2 {
+      padding-left: 8px !important
+    }
+
+    .markdown .py-2 {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important
+    }
+
+    .markdown .pl-3 {
+      padding-left: 16px !important
+    }
+
+    .markdown .pl-4 {
+      padding-left: 24px !important
+    }
+
+    .markdown .pl-5 {
+      padding-left: 32px !important
+    }
+
+    .markdown .pl-6 {
+      padding-left: 40px !important
+    }
+
+    .markdown .pl-7 {
+      padding-left: 48px !important
+    }
+
+    .markdown .pl-8 {
+      padding-left: 64px !important
+    }
+
+    .markdown .pl-9 {
+      padding-left: 80px !important
+    }
+
+    .markdown .pl-10 {
+      padding-left: 96px !important
+    }
+
+    .markdown .pl-11 {
+      padding-left: 112px !important
+    }
+
+    .markdown .pl-12 {
+      padding-left: 128px !important
+    }
+
+    .markdown>:first-child {
+      margin-top: 0 !important
+    }
+
+    .markdown>:last-child {
+      margin-bottom: 0 !important
+    }
+
+    .markdown a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .markdown blockquote,
+    .markdown details,
+    .markdown dl,
+    .markdown ol,
+    .markdown p,
+    .markdown pre,
+    .markdown table,
+    .markdown ul {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    .markdown blockquote {
+      padding: 0 1em;
+      color: #6a737d;
+      border-left: .25em solid #dfe2e5
+    }
+
+    .markdown blockquote>:first-child {
+      margin-top: 0
+    }
+
+    .markdown blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown h1,
+    .markdown h2,
+    .markdown h3,
+    .markdown h4,
+    .markdown h5,
+    .markdown h6 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      line-height: 1.25
+    }
+
+    .markdown h1,
+    .markdown h2 {
+      font-size: 2em;
+      padding-bottom: .3em;
+      border-bottom: 1px solid #eaecef
+    }
+
+    .markdown h2 {
+      font-size: 1.5em
+    }
+
+    .markdown h3 {
+      font-size: 1.25em
+    }
+
+    .markdown h4 {
+      font-size: 1em
+    }
+
+    .markdown h5 {
+      font-size: .875em
+    }
+
+    .markdown h6 {
+      font-size: .85em;
+      color: #6a737d
+    }
+
+    .markdown ol,
+    .markdown ul {
+      padding-left: 2em
+    }
+
+    .markdown li {
+      word-wrap: break-all
+    }
+
+    .markdown dl dt,
+    .markdown li>p {
+      margin-top: 16px
+    }
+
+    .markdown li+li {
+      margin-top: .25em
+    }
+
+    .markdown dl {
+      padding: 0
+    }
+
+    .markdown dl dt {
+      padding: 0;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: 500
+    }
+
+    .markdown dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    .markdown table {
+      display: block;
+      width: 100%;
+      overflow: auto
+    }
+
+    .markdown table td,
+    .markdown table th {
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5
+    }
+
+    .markdown table tr {
+      background-color: #fff;
+      border-top: 1px solid #c6cbd1
+    }
+
+    .markdown table tr:nth-child(2n) {
+      background-color: #f6f8fa
+    }
+
+    .markdown img[align=right] {
+      padding-left: 20px
+    }
+
+    .markdown img[align=left] {
+      padding-right: 20px
+    }
+
+    .markdown code {
+      padding: .2em .4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(27, 31, 35, .05);
+      border-radius: 3px
+    }
+
+    .markdown pre {
+      word-wrap: normal
+    }
+
+    .markdown pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+      background: 0 0;
+      border: 0
+    }
+
+    .markdown .highlight {
+      margin-bottom: 16px
+    }
+
+    .markdown .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    .markdown .highlight pre,
+    .markdown pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      /*  background-color: #f6f8fa; */
+      border-radius: 3px
+    }
+
+    .markdown pre code {
+      display: inline;
+      max-width: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: initial;
+      border: 0
+    }
+
+    .markdown .commit-tease-sha {
+      display: inline-block;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      font-size: 90%;
+      color: #444d56
+    }
+
+    .markdown .full-commit .btn-outline:not(:disabled):hover {
+      color: #005cc5;
+      border-color: #005cc5
+    }
+
+    .markdown .blob-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden
+    }
+
+    .markdown .blob-wrapper-embedded {
+      max-height: 240px;
+      overflow-y: auto
+    }
+
+    .markdown .blob-code,
+    .markdown .blob-num {
+      padding-right: 10px;
+      padding-left: 10px;
+      line-height: 20px;
+      vertical-align: top
+    }
+
+    .markdown .blob-num {
+      width: 1%;
+      min-width: 50px;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      font-size: 12px;
+      color: rgba(27, 31, 35, .3);
+      text-align: right;
+      white-space: nowrap;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown .blob-num:hover {
+      color: rgba(27, 31, 35, .6)
+    }
+
+    .markdown .blob-num:before {
+      content: attr(data-line-number)
+    }
+
+    .markdown .blob-code {
+      position: relative
+    }
+
+    .markdown .blob-code-inner {
+      overflow: visible;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      font-size: 12px;
+      color: #24292e;
+      word-wrap: normal;
+      white-space: pre
+    }
+
+    .markdown .pl-token.active,
+    .markdown .pl-token:hover {
+      cursor: pointer;
+      background: #ffea7f
+    }
+
+    .markdown .tab-size[data-tab-size="1"] {
+      -moz-tab-size: 1;
+      tab-size: 1
+    }
+
+    .markdown .tab-size[data-tab-size="2"] {
+      -moz-tab-size: 2;
+      tab-size: 2
+    }
+
+    .markdown .tab-size[data-tab-size="3"] {
+      -moz-tab-size: 3;
+      tab-size: 3
+    }
+
+    .markdown .tab-size[data-tab-size="4"] {
+      -moz-tab-size: 4;
+      tab-size: 4
+    }
+
+    .markdown .tab-size[data-tab-size="5"] {
+      -moz-tab-size: 5;
+      tab-size: 5
+    }
+
+    .markdown .tab-size[data-tab-size="6"] {
+      -moz-tab-size: 6;
+      tab-size: 6
+    }
+
+    .markdown .tab-size[data-tab-size="7"] {
+      -moz-tab-size: 7;
+      tab-size: 7
+    }
+
+    .markdown .tab-size[data-tab-size="8"] {
+      -moz-tab-size: 8;
+      tab-size: 8
+    }
+
+    .markdown .tab-size[data-tab-size="9"] {
+      -moz-tab-size: 9;
+      tab-size: 9
+    }
+
+    .markdown .tab-size[data-tab-size="10"] {
+      -moz-tab-size: 10;
+      tab-size: 10
+    }
+
+    .markdown .tab-size[data-tab-size="11"] {
+      -moz-tab-size: 11;
+      tab-size: 11
+    }
+
+    .markdown .tab-size[data-tab-size="12"] {
+      -moz-tab-size: 12;
+      tab-size: 12
+    }
+
+    .markdown .task-list-item {
+      list-style-type: none
+    }
+
+    .markdown .task-list-item+.task-list-item {
+      margin-top: 3px
+    }
+
+    .markdown .task-list-item input {
+      margin: 0 .2em .25em -1.6em;
+      vertical-align: middle
+    }
+  </style>
+
+  <style>
+    /* Tomorrow Theme */
+    /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+    /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+    /* Tomorrow Comment */
+    .hljs-comment,
+    .hljs-quote {
+      color: #8e908c;
+    }
+
+    /* Tomorrow Red */
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class,
+    .hljs-regexp,
+    .hljs-deletion {
+      color: #c82829;
+    }
+
+    /* Tomorrow Orange */
+    .hljs-number,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params,
+    .hljs-meta,
+    .hljs-link {
+      color: #f5871f;
+    }
+
+    /* Tomorrow Yellow */
+    .hljs-attribute {
+      color: #eab700;
+    }
+
+    /* Tomorrow Green */
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet,
+    .hljs-addition {
+      color: #718c00;
+    }
+
+    /* Tomorrow Blue */
+    .hljs-title,
+    .hljs-section {
+      color: #4271ae;
+    }
+
+    /* Tomorrow Purple */
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #8959a8;
+    }
+
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      color: #4d4d4c;
+      padding: 0.5em;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: bold;
+    }
+  </style>
+
+  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
-<body>
+
+<body class='markdown'>
   <script>
     mermaid.initialize({
       startOnLoad: true,
       theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
+        ? 'dark'
+        : 'default'
     });
   </script>
-<h1 id="%E5%AE%9A%E7%BE%A9%E6%9B%B8">定義書</h1>
-<p>数値の定義と注文・返品データの加工処理についてのエビデンス</p>
-<blockquote>
-<p>Index</p>
-<ul>
-<li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
-<li><a href="#%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</a></li>
-<li><a href="#%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</a></li>
-<li><a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</a></li>
-<li><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a></li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
-</ul>
-</blockquote>
-<h2 id="%E7%9B%AE%E7%9A%84">目的</h2>
-<ul>
-<li>集計のために重複のないユニークなIDを持つデータにする</li>
-<li>各種フィルターのため、条件と数値が対応するようなデータ形式にする</li>
-<li>返品率等の分析のため出荷データと返品データの関連付け</li>
-<li>返品データにある請求金額は実際の返金額とは異なるため、実際の返品金額の算出</li>
-</ul>
-<h2 id="%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</h2>
-<ul>
-<li>注文データ
-<ul>
-<li>同一注文番号で複数のデータが存在する</li>
-<li>同一の注文番号を持つデータの請求金額、送料、手数料、消費税には全て同じデータが含まれる
-<ul>
-<li>そのまま集計すると重複する</li>
-</ul>
-</li>
-<li>消費税は送料含めた請求額全ての消費税</li>
-<li>単価を持つ商品と持たない商品がある</li>
-<li>同一注文で異なる商品を購入した場合、一つの番号にまとめられる</li>
-<li>同一品番の別商品あり</li>
-<li>数量の項目はあるが、注文番号+品番がユニークなデータでない</li>
-</ul>
-</li>
-<li>返品データ
-<ul>
-<li>同一返品IDで複数のデータが存在する</li>
-<li>同一の返品IDを持つデータの請求金額、送料には全て同じデータが含まれる
-<ul>
-<li>そのまま集計すると重複する</li>
-</ul>
-</li>
-<li>別注文番号のものをまとめて返品すると、返品IDは別のものになる</li>
-<li>返品データは単価を持たず、同一注文番号の商品の一部を返品しても全額のデータしかない
-<ul>
-<li>そのまま集計すると返金額が多くなる</li>
-</ul>
-</li>
-<li>注文番号で注文データと関連付け可能</li>
-<li>数量の項目はあるが、注文番号+品番はユニークなデータでない</li>
-<li>注文番号や商品名などが完全に重複するデータが存在する
-<ul>
-<li>完全に重複するデータはそのままでは集計されない</li>
-</ul>
-</li>
-<li>対応する注文データにない商品を返品しているデータが存在する</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</h2>
-<ul>
-<li>正規化処理
-<ul>
-<li><strong><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a>のデータ型に従い、keyのないデータを破棄する</strong></li>
-<li>strのデータ欠損は空白文字列で埋める</li>
-<li>dateのデータは標準日付フォーマット[YYYY-MM-DD HH:mm:ss]に変換する(時刻欠落の場合は0埋め)</li>
-</ul>
-</li>
-<li>データマッピング
-<ul>
-<li>以下のデータはIDと対応する名前で紐づける
-<ul>
-<li>品番-品名</li>
-<li>都道府県コード - 都道府県名 - エリアマップ</li>
-<li>配送方法ID - 配送方法</li>
-<li>支払方法ID - 支払方法</li>
-<li>商品カテゴリ - 商品カテゴリ名</li>
-<li>返品理由 - 返品理由名</li>
-</ul>
-</li>
-<li>品名以外のマッピングはECロボ固有の固定マップ
-<ul>
-<li>独自項目は追加設定</li>
-</ul>
-</li>
-<li>品名は自動抽出したものをベースとする
-<ul>
-<li>IDが重複するものは、最初に読み込まれたデータを対応させる</li>
-<li>望ましくないマッピングは修正する</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>クレンジング
-<ul>
-<li>出荷データ
-<ul>
-<li><strong>請求金額0のデータを除外する</strong></li>
-<li>商品単価×数量を商品代金、送料+手数料をサービス料とする</li>
-<li>消費税を商品代金とサービス料に金額比で分割し、商品消費税とサービス消費税とする(端数切捨て)</li>
-<li>請求金額から商品代金、商品消費税、サービス料、サービス消費税を差し引いた額を調整金とする</li>
-<li>注文ごとに固有の情報を注文明細とする
-<ul>
-<li>{∄!注文番号・注文日時・送付先・配送方法・支払方法・顧客番号・送料・手数料・調整金・サービス料・サービス消費税}</li>
-</ul>
-</li>
-<li><strong>単価と数量が0のデータを除外する</strong>
-<ul>
-<li>商品フィルターをかけたときに、送料等のみの表示になるなど誤解を招くため</li>
-</ul>
-</li>
-<li><strong>同一注文内の同品番を持つデータの平均単価と合計数量を算出して1つに統合する</strong></li>
-<li>注文番号+品番に固有の情報を商品出荷テーブルとする
-<ul>
-<li>{注文番号・品番・単価・数量・商品代金・商品消費税}</li>
-</ul>
-</li>
-<li>同一年月のデータと結合する
-<ul>
-<li>注文番号、または注文番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>返品データ
-<ul>
-<li>返品着払い送料を返品コストとする</li>
-<li>注文番号で注文データと紐づけ、商品の情報や注文の情報は注文データから取得する
-<ul>
-<li>注文と異なる商品が返品されたとき、商品ごとの正しい返品率が反映されなくなるため</li>
-</ul>
-</li>
-<li>注文データに含まれない、返品IDに固有の情報を返品マスタとする
-<ul>
-<li>{∄!返品ID・注文番号・返品理由・返品コスト}</li>
-</ul>
-</li>
-<li>注文データに含まれない、同じ返品IDの詳細情報を返品テーブルとする
-<ul>
-<li>{返品ID・返品アイテム(≠注文商品)・数量}</li>
-</ul>
-</li>
-<li><strong>同一返品内の同品番を持つデータの合計数量を算出して1つに統合する</strong></li>
-<li><strong>返品IDに紐づいた注文番号を持つ注文はすべて返品されたとする</strong>
-<ul>
-<li>注文の一部が返品された場合も返金額は注文全額</li>
-<li>同一注文を複数に分けて返品した場合は重複しない</li>
-<li>商品フィルタは返金額のうちその商品が占める金額となる</li>
-</ul>
-</li>
-<li>同一年月のデータと結合する<br>
-*返品番号、または返品番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</h2>
-<ul>
-<li>データ期間:
-<ul>
-<li>注文データは出荷日、返品データは返品登録日が基準</li>
-<li>ある月の返品データは、その月より過去の月の注文分を含む</li>
-</ul>
-</li>
-<li>商品名:
-<ul>
-<li>単価が0でない、品番と一意に一致する商品名</li>
-<li><strong>品番に重複がある場合、同品番で最初に読み込まれた商品名をベースに調整</strong></li>
-</ul>
-</li>
-<li>商品売上:
-<ul>
-<li>単価 × 数量</li>
-</ul>
-</li>
-<li>売上金・購入金額・請求金額:
-<ul>
-<li>(単価 × 数量) + 商品消費税 + 送料 + 手数料 + 調整金 + サービス消費税</li>
-<li><strong>同一注文番号に同じ品番のデータが含まれる場合、数量は合計、単価は平均を取ったものになる</strong></li>
-<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
-<li>原価はデータなし</li>
-</ul>
-</li>
-<li>エリア別売上:
-<ul>
-<li>送付先都道府県ごとの売上合計</li>
-<li>顧客の住所は引っ越しで変わるなどの理由で送付先を利用</li>
-</ul>
-</li>
-<li>注文数:
-<ul>
-<li>ユニークな注文番号の数</li>
-</ul>
-</li>
-<li>顧客数:
-<ul>
-<li>ユニークな顧客番号の数</li>
-</ul>
-</li>
-<li>LTV:
-<ul>
-<li>顧客ごとの平均購入金額[円/日]×顧客ごと在籍日数[日]</li>
-<li>顧客一人が離脱するまでに平均でいくら購入するかを表す</li>
-</ul>
-</li>
-<li>在籍日数:
-<ul>
-<li>全顧客のデータ内最新日 – 集計期間に購入履歴のある顧客ごとデータ内で最古の購入日</li>
-</ul>
-</li>
-<li>リピート数:
-<ul>
-<li>同じ顧客番号を持つ別注文番号の数</li>
-</ul>
-</li>
-<li>継続率:
-<ul>
-<li>n/n-1で表される、前回購入した人のうちどれだけが次回も購入したかを表す値</li>
-<li>実際に離脱したり、最近の購入者が増えると継続率の数値が下がる</li>
-</ul>
-</li>
-<li>購入日:
-<ul>
-<li>元データが持っている粒度で、秒未満切り捨て</li>
-</ul>
-</li>
-<li>返品数・返品件数:
-<ul>
-<li><strong>注文日が返品データと同期間に存在する</strong>、ユニークな返品IDの数</li>
-<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
-<li>同一注文を複数に分けて返品した場合、分割された返品数</li>
-</ul>
-</li>
-<li>返品率:
-<ul>
-<li>返品IDに紐づいた注文数(≠返品件数) / 注文数</li>
-<li>同一注文を複数に分けて返品した場合、分子は重複しない</li>
-<li>ある月の注文数に対する返品数は、今後返品される分を含まないため、直近のデータは低く出る</li>
-</ul>
-</li>
-<li>返品金額:
-<ul>
-<li><strong>注文日が返品データと同期間に存在する</strong>、返品IDを持つ注文番号の売上金</li>
-<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
-<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
-<li><strong>注文の一部しか返品されなかった場合も、返品額は注文の全額</strong></li>
-<li>同一注文を複数に分けて返品した場合は、重複しない</li>
-</ul>
-</li>
-<li>返品コスト:
-<ul>
-<li>返品着払い送料</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</h2>
-<ul>
-<li>カラム名全て必須</li>
-<li>データ型
-<ul>
-<li>date: 日付データ</li>
-<li>key: 必須文字列データ</li>
-<li>str: 文字列データ</li>
-<li>int: 数値データ</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><div>{
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v2.0.1"</span>,
-  <span class="hljs-attr">"required"</span>: {
-    <span class="hljs-attr">"orders"</span>: {
-      <span class="hljs-attr">"注文番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"顧客番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"customer_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"出荷日"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"date"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
-      },
-      <span class="hljs-attr">"送付先住所1"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"prefecture_name"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"配送方法ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"支払方法ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"品番(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"カテゴリ"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_name"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"請求金額"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"billing"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"送料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"shipping"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"手数料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"消費税"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"tax"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"単価(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"数量(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
+  <h1 id="%E5%AE%9A%E7%BE%A9%E6%9B%B8">定義書</h1>
+  <p>数値の定義と注文・返品データの加工処理についてのエビデンス</p>
+  <blockquote>
+    <p>Index</p>
+    <ul>
+      <li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
+      <li><a href="#%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</a></li>
+      <li><a href="#%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</a></li>
+      <li><a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</a></li>
+      <li><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a></li>
+      <li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+    </ul>
+  </blockquote>
+  <h2 id="%E7%9B%AE%E7%9A%84">目的</h2>
+  <ul>
+    <li>集計のために重複のないユニークなIDを持つデータにする</li>
+    <li>各種フィルターのため、条件と数値が対応するようなデータ形式にする</li>
+    <li>返品率等の分析のため出荷データと返品データの関連付け</li>
+    <li>返品データにある請求金額は実際の返金額とは異なるため、実際の返品金額の算出</li>
+  </ul>
+  <h2 id="%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</h2>
+  <ul>
+    <li>注文データ
+      <ul>
+        <li>同一注文番号で複数のデータが存在する</li>
+        <li>同一の注文番号を持つデータの請求金額、送料、手数料、消費税には全て同じデータが含まれる
+          <ul>
+            <li>そのまま集計すると重複する</li>
+          </ul>
+        </li>
+        <li>消費税は送料含めた請求額全ての消費税</li>
+        <li>単価を持つ商品と持たない商品がある</li>
+        <li>同一注文で異なる商品を購入した場合、一つの番号にまとめられる</li>
+        <li>同一品番の別商品あり</li>
+        <li>数量の項目はあるが、注文番号+品番がユニークなデータでない</li>
+      </ul>
+    </li>
+    <li>返品データ
+      <ul>
+        <li>同一返品IDで複数のデータが存在する</li>
+        <li>同一の返品IDを持つデータの請求金額、送料には全て同じデータが含まれる
+          <ul>
+            <li>そのまま集計すると重複する</li>
+          </ul>
+        </li>
+        <li>別注文番号のものをまとめて返品すると、返品IDは別のものになる</li>
+        <li>返品データは単価を持たず、同一注文番号の商品の一部を返品しても全額のデータしかない
+          <ul>
+            <li>そのまま集計すると返金額が多くなる</li>
+          </ul>
+        </li>
+        <li>注文番号で注文データと関連付け可能</li>
+        <li>数量の項目はあるが、注文番号+品番はユニークなデータでない</li>
+        <li>注文番号や商品名などが完全に重複するデータが存在する
+          <ul>
+            <li>完全に重複するデータはそのままでは集計されない</li>
+          </ul>
+        </li>
+        <li>対応する注文データにない商品を返品しているデータが存在する</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</h2>
+  <ul>
+    <li>正規化処理
+      <ul>
+        <li><strong><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a>のデータ型に従い、keyのないデータを破棄する</strong>
+        </li>
+        <li>strのデータ欠損は空白文字列で埋める</li>
+        <li>dateのデータは標準日付フォーマット[YYYY-MM-DD HH:mm:ss]に変換する(時刻欠落の場合は0埋め)</li>
+      </ul>
+    </li>
+    <li>データマッピング
+      <ul>
+        <li>以下のデータはIDと対応する名前で紐づける
+          <ul>
+            <li>品番-品名</li>
+            <li>都道府県コード - 都道府県名 - エリアマップ</li>
+            <li>配送方法ID - 配送方法</li>
+            <li>支払方法ID - 支払方法</li>
+            <li>商品カテゴリ - 商品カテゴリ名</li>
+            <li>返品理由 - 返品理由名</li>
+          </ul>
+        </li>
+        <li>品名以外のマッピングはECロボ固有の固定マップ
+          <ul>
+            <li>独自項目は追加設定</li>
+          </ul>
+        </li>
+        <li>品名は自動抽出したものをベースとする
+          <ul>
+            <li>IDが重複するものは、最初に読み込まれたデータを対応させる</li>
+            <li>望ましくないマッピングは修正する</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>クレンジング
+      <ul>
+        <li>出荷データ
+          <ul>
+            <li><strong>請求金額0のデータを除外する</strong></li>
+            <li>商品単価×数量を商品代金、送料+手数料をサービス料とする</li>
+            <li>消費税を商品代金とサービス料に金額比で分割し、商品消費税とサービス消費税とする(端数切捨て)</li>
+            <li>請求金額から商品代金、商品消費税、サービス料、サービス消費税を差し引いた額を調整金とする</li>
+            <li>注文ごとに固有の情報を注文明細とする
+              <ul>
+                <li>{∄!注文番号・注文日時・送付先・配送方法・支払方法・顧客番号・送料・手数料・調整金・サービス料・サービス消費税}</li>
+              </ul>
+            </li>
+            <li><strong>単価と数量が0のデータを除外する</strong>
+              <ul>
+                <li>商品フィルターをかけたときに、送料等のみの表示になるなど誤解を招くため</li>
+              </ul>
+            </li>
+            <li><strong>同一注文内の同品番を持つデータの平均単価と合計数量を算出して1つに統合する</strong></li>
+            <li>注文番号+品番に固有の情報を商品出荷テーブルとする
+              <ul>
+                <li>{注文番号・品番・単価・数量・商品代金・商品消費税}</li>
+              </ul>
+            </li>
+            <li>同一年月のデータと結合する
+              <ul>
+                <li>注文番号、または注文番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>返品データ
+          <ul>
+            <li>返品着払い送料を返品コストとする</li>
+            <li>注文番号で注文データと紐づけ、商品の情報や注文の情報は注文データから取得する
+              <ul>
+                <li>注文と異なる商品が返品されたとき、商品ごとの正しい返品率が反映されなくなるため</li>
+              </ul>
+            </li>
+            <li>注文データに含まれない、返品IDに固有の情報を返品マスタとする
+              <ul>
+                <li>{∄!返品ID・注文番号・返品理由・返品コスト}</li>
+              </ul>
+            </li>
+            <li>注文データに含まれない、同じ返品IDの詳細情報を返品テーブルとする
+              <ul>
+                <li>{返品ID・返品アイテム(≠注文商品)・数量}</li>
+              </ul>
+            </li>
+            <li><strong>同一返品内の同品番を持つデータの合計数量を算出して1つに統合する</strong></li>
+            <li><strong>返品IDに紐づいた注文番号を持つ注文はすべて返品されたとする</strong>
+              <ul>
+                <li>注文の一部が返品された場合も返金額は注文全額</li>
+                <li>同一注文を複数に分けて返品した場合は重複しない</li>
+                <li>商品フィルタは返金額のうちその商品が占める金額となる</li>
+              </ul>
+            </li>
+            <li>同一年月のデータと結合する<br>
+              *返品番号、または返品番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</h2>
+  <ul>
+    <li>データ期間:
+      <ul>
+        <li>注文データは注文日、返品データは返品登録日が基準</li>
+        <li>ある月の返品データは、その月より過去の月の注文分を含む</li>
+      </ul>
+    </li>
+    <li>商品名:
+      <ul>
+        <li>単価が0でない、品番と一意に一致する商品名</li>
+        <li><strong>品番に重複がある場合、同品番で最初に読み込まれた商品名をベースに調整</strong></li>
+      </ul>
+    </li>
+    <li>商品売上:
+      <ul>
+        <li>単価 × 数量</li>
+      </ul>
+    </li>
+    <li>売上金・購入金額・請求金額:
+      <ul>
+        <li>(単価 × 数量) + 商品消費税 + 送料 + 手数料 + 調整金 + サービス消費税</li>
+        <li><strong>同一注文番号に同じ品番のデータが含まれる場合、数量は合計、単価は平均を取ったものになる</strong></li>
+        <li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
+        <li>原価はデータなし</li>
+      </ul>
+    </li>
+    <li>エリア別売上:
+      <ul>
+        <li>送付先都道府県ごとの売上合計</li>
+        <li>顧客の住所は引っ越しで変わるなどの理由で送付先を利用</li>
+      </ul>
+    </li>
+    <li>注文数:
+      <ul>
+        <li>ユニークな注文番号の数</li>
+      </ul>
+    </li>
+    <li>顧客数:
+      <ul>
+        <li>ユニークな顧客番号の数</li>
+      </ul>
+    </li>
+    <li>LTV:
+      <ul>
+        <li>顧客ごとの平均購入金額[円/日]×顧客ごと在籍日数[日]</li>
+        <li>顧客一人が離脱するまでに平均でいくら購入するかを表す</li>
+      </ul>
+    </li>
+    <li>在籍日数:
+      <ul>
+        <li>全顧客のデータ内最新日 – 集計期間に購入履歴のある顧客ごとデータ内で最古の購入日</li>
+      </ul>
+    </li>
+    <li>リピート数:
+      <ul>
+        <li>同じ顧客番号を持つ別注文番号の数</li>
+      </ul>
+    </li>
+    <li>継続率:
+      <ul>
+        <li>n/n-1で表される、前回購入した人のうちどれだけが次回も購入したかを表す値</li>
+        <li>実際に離脱したり、最近の購入者が増えると継続率の数値が下がる</li>
+      </ul>
+    </li>
+    <li>購入日:
+      <ul>
+        <li>元データが持っている粒度で、秒未満切り捨て</li>
+      </ul>
+    </li>
+    <li>返品数・返品件数:
+      <ul>
+        <li><strong>注文日が返品データと同期間に存在する</strong>、ユニークな返品IDの数</li>
+        <li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
+        <li>同一注文を複数に分けて返品した場合、分割された返品数</li>
+      </ul>
+    </li>
+    <li>返品率:
+      <ul>
+        <li>返品IDに紐づいた注文数(≠返品件数) / 注文数</li>
+        <li>同一注文を複数に分けて返品した場合、分子は重複しない</li>
+        <li>ある月の注文数に対する返品数は、今後返品される分を含まないため、直近のデータは低く出る</li>
+      </ul>
+    </li>
+    <li>返品金額:
+      <ul>
+        <li><strong>注文日が返品データと同期間に存在する</strong>、返品IDを持つ注文番号の売上金</li>
+        <li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
+        <li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
+        <li><strong>注文の一部しか返品されなかった場合も、返品額は注文の全額</strong></li>
+        <li>同一注文を複数に分けて返品した場合は、重複しない</li>
+      </ul>
+    </li>
+    <li>返品コスト:
+      <ul>
+        <li>返品着払い送料</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</h2>
+  <ul>
+    <li>カラム名全て必須</li>
+    <li>データ型
+      <ul>
+        <li>date: 日付データ</li>
+        <li>key: 必須文字列データ</li>
+        <li>str: 文字列データ</li>
+        <li>int: 数値データ</li>
+      </ul>
+    </li>
+  </ul>
+  <pre class="hljs"><code><div>{
+  <span class="hljs-attr">"orders"</span>: {
+    <span class="hljs-attr">"注文番号"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
     },
-    <span class="hljs-attr">"returns"</span>: {
-      <span class="hljs-attr">"返品ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"注文番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"返品登録日時"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_date"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
-      },
-      <span class="hljs-attr">"返品在庫コード"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"カテゴリ"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"返品理由"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"complain_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"返品数"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_amount"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"返品着払送料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_cost"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      }
+    <span class="hljs-attr">"顧客番号"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"customer_id"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
     },
-    <span class="hljs-attr">"optional"</span>: {
-      <span class="hljs-attr">"orders"</span>: {
-        <span class="hljs-attr">"品名(明細)"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"ポイント残"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"point"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"使用ポイント"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"use_point"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"同梱物点数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bundled"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"作業点数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"workload"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"注文回数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"purchase"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"定期注文回数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"subscript"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        }
-      },
-      <span class="hljs-attr">"returns"</span>: {
-        <span class="hljs-attr">"商品名"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"返品配送方法"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_delivery_code"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"返品状態区分"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_condition_code"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        }
-      }
+    <span class="hljs-attr">"注文日時"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"date"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
+    },
+    <span class="hljs-attr">"送付先住所1"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"prefecture_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"配送方法ID"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"配送方法"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"支払方法ID"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"支払方法"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"品番"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"品名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"カテゴリ"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"請求金額"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"billing"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"送料"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"shipping"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"手数料"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"消費税"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"tax"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"単価"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"数量"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    }
+  },
+  <span class="hljs-attr">"returns"</span>: {
+    <span class="hljs-attr">"返品ID"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_id"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
+    },
+    <span class="hljs-attr">"注文番号"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
+    },
+    <span class="hljs-attr">"返品登録日時"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_date"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
+    },
+    <span class="hljs-attr">"配送方法ID"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"配送方法名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"支払方法ID"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"支払方法名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"在庫コード"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"商品名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"カテゴリ"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"カテゴリ名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"返品理由"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"complain_code"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"返品理由名"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"complain_name"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
+    },
+    <span class="hljs-attr">"返品数"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
+    },
+    <span class="hljs-attr">"返品着払送料"</span>: {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_cost"</span>,
+      <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
     }
   }
+}
+
 </div></code></pre>
-<h2 id="%E8%A3%9C%E8%B6%B3">補足</h2>
-<h3 id="%E8%A3%9C%E8%B6%B31">補足1</h3>
-<p>ECロボ利用企業の1か月分の実データのレコード数が約80,000、余裕を見て1,000,000<br>
-実際には1か月分が衝突しなければ問題ないが、余裕を見て12か月×20年を想定<br>
-ハッシュ値がNビットのハッシュ値が衝突する試行回数の期待値は、2^(N/2)であるため<br>
-2^(N/2) = 1000000 × 12 × 20<br>
-N ≒ 56<br>
-よって16進数で14文字のハッシュ値に変換する</p>
+  <h2 id="%E8%A3%9C%E8%B6%B3">補足</h2>
+  <h3 id="%E8%A3%9C%E8%B6%B31">補足1</h3>
+  <p>ECロボ利用企業の1か月分の実データのレコード数が約80,000、余裕を見て1,000,000<br>
+    実際には1か月分が衝突しなければ問題ないが、余裕を見て12か月×20年を想定<br>
+    ハッシュ値がNビットのハッシュ値が衝突する試行回数の期待値は、2^(N/2)であるため<br>
+    2^(N/2) = 1000000 × 12 × 20<br>
+    N ≒ 56<br>
+    よって16進数で14文字のハッシュ値に変換する</p>
 
 </body>
+
 </html>
