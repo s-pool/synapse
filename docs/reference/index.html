@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>definition.md</title>
+<title>reference.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Roboto+Mono&family=Roboto:wght@400;500&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap);
 
 html {
     background-color: #fafafa
@@ -14,31 +14,28 @@ html {
 body {
     background-color: #fff;
     box-sizing: border-box;
-    min-width: 1012px;
-    max-width: 1012px;
-    margin: 16px auto;
+    max-width: 1024px;
+    margin: 40px auto;
     padding: 40px 48px;
     border: 1px solid #d1d5da;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    font-family: "Roboto","Noto Sans JP",sans-serif;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-family: "Roboto", "BIZ UDPGothic", sans-serif;
     font-weight: 400;
     text-rendering: optimizelegibility;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    color: #24292e;
+    color: rgba(0, 0, 0, 0.87);
     font-size: 16px;
     line-height: 1.5;
-    word-wrap: break-word
+    letter-spacing: 0.00938em;
 }
 body pre{
-  background-color: #1e1e1e !important;
+  background-color: #343434 !important;
 }
 code {
   color: #fafafa;
 }
 body code,body pre {
-  font-family: 'Roboto Mono','Source Han Sans',源ノ角ゴシック,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace
+  font-family: 'Roboto Mono', 'Source Han Code JP', '源ノ角ゴシック Code JP', Consolas, 'BIZ UDGothic', monospace;
 }
 
 body li {
@@ -171,7 +168,7 @@ body details summary {
 body kbd {
     display: inline-block;
     padding: 3px 5px;
-    font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font: 11px 'Roboto Mono', 'Source Han Code JP', '源ノ角ゴシック Code JP', Consolas, 'BIZ UDGothic', monospace;
     line-height: 10px;
     color: #444d56;
     vertical-align: middle;
@@ -200,12 +197,6 @@ body ol ol ol,body ol ul ol,body ul ol ol,body ul ul ol {
 body dd {
     margin-left: 0
 }
-
-/*
-body code,body pre {
-    font-family: 'Roboto Mono','Source Han Sans',源ノ角ゴシック,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace
-}
-*/
 
 body ol ol,body ol ul,body ul ol,body ul ul {
     margin-top: 0;
@@ -631,7 +622,7 @@ body pre code {
 
 body .commit-tease-sha {
     display: inline-block;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-family: 'Roboto Mono', 'Source Han Code JP', '源ノ角ゴシック Code JP', Consolas, 'BIZ UDGothic', monospace;
     font-size: 90%;
     color: #444d56
 }
@@ -661,7 +652,7 @@ body .blob-code,body .blob-num {
 body .blob-num {
     width: 1%;
     min-width: 50px;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-family: 'Roboto Mono', 'Source Han Code JP', '源ノ角ゴシック Code JP', Consolas, 'BIZ UDGothic', monospace;
     font-size: 12px;
     color: rgba(27,31,35,.3);
     text-align: right;
@@ -687,7 +678,7 @@ body .blob-code {
 
 body .blob-code-inner {
     overflow: visible;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-family: 'Roboto Mono', 'Source Han Code JP', '源ノ角ゴシック Code JP', Consolas, 'BIZ UDGothic', monospace;
     font-size: 12px;
     color: #24292e;
     word-wrap: normal;
@@ -849,7 +840,7 @@ body .task-list-item input {
 	font-weight: bold;
 }
 </style>
-
+<link rel="stylesheet" href="file:///c%3A/Users/endo.tamotsu/Repository/Private/synapse-core/docs/ecrobo/markdown.css" type="text/css">
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
@@ -862,99 +853,489 @@ body .task-list-item input {
     });
   </script>
 <h1 id="%E5%AE%9A%E7%BE%A9%E6%9B%B8">定義書</h1>
-<p>数値の定義と注文・返品データの加工処理についてのエビデンス</p>
 <blockquote>
 <p>Index</p>
 <ul>
-<li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
-<li><a href="#%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</a></li>
-<li><a href="#%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</a></li>
-<li><a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</a></li>
-<li><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a></li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+<li><a href="#1-%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">1. 入力データ</a>
+<ul>
+<li><a href="#1-1-%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">1-1. テーブル</a></li>
+<li><a href="#1-2-%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF">1-2. マッピングデータ</a></li>
+<li><a href="#1-3-%E9%9A%8E%E5%B1%A4%E3%83%87%E3%83%BC%E3%82%BF">1-3. 階層データ</a></li>
+<li><a href="#1-4-%E5%AE%9F%E4%BD%93%E9%96%A2%E9%80%A3%E5%9B%B3">1-4. 実体関連図</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">2. 変数の定義</a>
+<ul>
+<li><a href="#2-1-%E3%83%87%E3%83%BC%E3%82%BF%E6%9C%9F%E9%96%93">2-1. データ期間</a></li>
+<li><a href="#2-2-%E5%95%86%E5%93%81%E5%90%8D">2-2. 商品名</a></li>
+<li><a href="#2-3-%E5%95%86%E5%93%81%E5%A3%B2%E4%B8%8A">2-3. 商品売上</a></li>
+<li><a href="#2-3-%E5%A3%B2%E4%B8%8A%E9%87%91%E3%83%BB%E8%B3%BC%E5%85%A5%E9%87%91%E9%A1%8D%E3%83%BB%E8%AB%8B%E6%B1%82%E9%87%91%E9%A1%8D">2-3. 売上金・購入金額・請求金額</a></li>
+<li><a href="#2-4-%E3%82%A8%E3%83%AA%E3%82%A2">2-4. エリア</a></li>
+<li><a href="#2-5-%E6%B3%A8%E6%96%87%E6%95%B0">2-5. 注文数</a></li>
+<li><a href="#2-6-%E9%A1%A7%E5%AE%A2%E6%95%B0">2-6. 顧客数</a></li>
+<li><a href="#2-7-%E7%B4%AF%E8%A8%88%E8%B3%BC%E5%85%A5%E9%87%91%E9%A1%8D">2-7. 累計購入金額</a></li>
+<li><a href="#2-8-abc%E5%88%86%E6%9E%90">2-8. ABC分析</a></li>
+<li><a href="#2-9-%E3%83%AA%E3%83%94%E3%83%BC%E3%83%88%E6%95%B0">2-9. リピート数</a></li>
+<li><a href="#2-10-%E7%B6%99%E7%B6%9A%E7%8E%87">2-10. 継続率</a></li>
+<li><a href="#2-11-%E8%B3%BC%E5%85%A5%E6%97%A5">2-11. 購入日</a></li>
+<li><a href="#2-12-%E8%BF%94%E5%93%81%E6%95%B0%E3%83%BB%E8%BF%94%E5%93%81%E4%BB%B6%E6%95%B0">2-12. 返品数・返品件数</a></li>
+<li><a href="#2-13-%E8%BF%94%E5%93%81%E7%8E%87">2-13. 返品率</a></li>
+<li><a href="#2-14-%E8%BF%94%E5%93%81%E9%87%91%E9%A1%8D">2-14. 返品金額</a></li>
+<li><a href="#2-15-%E8%BF%94%E5%93%81%E3%82%B3%E3%82%B9%E3%83%88">2-15. 返品コスト</a></li>
+<li><a href="#2-16-%E5%9C%A8%E5%BA%AB%E5%A2%97%E6%B8%9B">2-16. 在庫増減</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">3. 加工処理</a></li>
 </ul>
 </blockquote>
-<h2 id="%E7%9B%AE%E7%9A%84">目的</h2>
+<h2 id="1-%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">1. 入力データ</h2>
+<h3 id="1-1-%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">1-1. テーブル</h3>
 <ul>
-<li>集計のために重複のないユニークなIDを持つデータにする</li>
-<li>各種フィルターのため、条件と数値が対応するようなデータ形式にする</li>
-<li>返品率等の分析のため出荷データと返品データの関連付け</li>
-<li>返品データにある請求金額は実際の返金額とは異なるため、実際の返品金額の算出</li>
-</ul>
-<h2 id="%E5%85%83%E3%83%87%E3%83%BC%E3%82%BF%E7%89%B9%E5%BE%B4">元データ特徴</h2>
-<ul>
-<li>注文データ
-<ul>
-<li>同一注文番号で複数のデータが存在する</li>
-<li>同一の注文番号を持つデータの請求金額、送料、手数料、消費税には全て同じデータが含まれる
-<ul>
-<li>そのまま集計すると重複する</li>
-</ul>
+<li>
+<p>出荷データ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"> Attribute </th>
+<th style="text-align:center">Key</th>
+<th style="text-align:center">Types</th>
+<th>Note </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">注文番号</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">顧客番号</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">品番(明細)</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>在庫コード</td>
+</tr>
+<tr>
+<td style="text-align:center">配送方法ID</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>マッピングのキー</td>
+</tr>
+<tr>
+<td style="text-align:center">支払方法ID</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>マッピングのキー</td>
+</tr>
+<tr>
+<td style="text-align:center">出荷日</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">datetime</td>
+<td>標準日付フォーマット(YYYY-MM-DD [HH:mm:ss])</td>
+</tr>
+<tr>
+<td style="text-align:center">送付先住所1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">str</td>
+<td>都道府県名を含む</td>
+</tr>
+<tr>
+<td style="text-align:center">請求金額</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td>0または空データは破棄</td>
+</tr>
+<tr>
+<td style="text-align:center">送料</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">手数料</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">消費税</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">単価(明細)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">数量(明細)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </li>
-<li>消費税は送料含めた請求額全ての消費税</li>
-<li>単価を持つ商品と持たない商品がある</li>
-<li>同一注文で異なる商品を購入した場合、一つの番号にまとめられる</li>
-<li>同一品番の別商品あり</li>
-<li>数量の項目はあるが、注文番号+品番がユニークなデータでない</li>
-</ul>
+<li>
+<p>返品データ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"> Attribute </th>
+<th style="text-align:center">Key</th>
+<th style="text-align:center">Types</th>
+<th>Note </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">返品ID</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">注文番号</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">返品在庫コード</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>在庫コード</td>
+</tr>
+<tr>
+<td style="text-align:center">返品理由</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>マッピングのキー</td>
+</tr>
+<tr>
+<td style="text-align:center">返品登録日時</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">datetime</td>
+<td>標準日付フォーマット(YYYY-MM-DD [HH:mm:ss])</td>
+</tr>
+<tr>
+<td style="text-align:center">返品数</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">返品着払送料</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </li>
-<li>返品データ
+<li>
+<p>入荷データ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"> Attribute </th>
+<th style="text-align:center">Key</th>
+<th style="text-align:center">Types</th>
+<th>Note </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">品番</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">str</td>
+<td>在庫コード</td>
+</tr>
+<tr>
+<td style="text-align:center">入荷実績日</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">datetime</td>
+<td>標準日付フォーマット(YYYY-MM-DD [HH:mm:ss])</td>
+</tr>
+<tr>
+<td style="text-align:center">入荷実績数</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>在庫データ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"> Attribute </th>
+<th style="text-align:center">Key</th>
+<th style="text-align:center">Types</th>
+<th>Note </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">在庫コード</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">総在庫数</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>商品データ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"> Attribute </th>
+<th style="text-align:center">Key</th>
+<th style="text-align:center">Types</th>
+<th>Note </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">在庫コード</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">カテゴリ</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">str</td>
+<td>マッピングのキー</td>
+</tr>
+<tr>
+<td style="text-align:center">商品名</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">str</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="1-2-%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF">1-2. マッピングデータ</h3>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"カテゴリ"</span>: {
+        <span class="hljs-attr">"0"</span>: <span class="hljs-string">"商品"</span>,
+        <span class="hljs-attr">"1"</span>: <span class="hljs-string">"同梱物"</span>,
+        <span class="hljs-attr">"2"</span>: <span class="hljs-string">"作業"</span>
+    },
+    <span class="hljs-attr">"配送方法"</span>: {
+        <span class="hljs-attr">"20"</span>: <span class="hljs-string">"ヤマト宅急便"</span>,
+        <span class="hljs-attr">"21"</span>: <span class="hljs-string">"佐川急便"</span>,
+        <span class="hljs-attr">"22"</span>: <span class="hljs-string">"ゆうパック"</span>,
+        <span class="hljs-attr">"23"</span>: <span class="hljs-string">"宅急便コンパクト"</span>,
+        <span class="hljs-attr">"24"</span>: <span class="hljs-string">"ネコポス"</span>,
+        <span class="hljs-attr">"25"</span>: <span class="hljs-string">"ゆうパケット"</span>,
+        <span class="hljs-attr">"35"</span>: <span class="hljs-string">"クロネコDM便"</span>,
+        <span class="hljs-attr">"36"</span>: <span class="hljs-string">"ゆうメール"</span>,
+        <span class="hljs-attr">"37"</span>: <span class="hljs-string">"福山通運"</span>,
+        <span class="hljs-attr">"38"</span>: <span class="hljs-string">"西濃運輸"</span>,
+        <span class="hljs-attr">"39"</span>: <span class="hljs-string">"EMS"</span>,
+        <span class="hljs-attr">"1173"</span>: <span class="hljs-string">"ネコポス"</span>,
+        <span class="hljs-attr">"1227"</span>: <span class="hljs-string">"eパケット"</span>,
+        <span class="hljs-attr">"1228"</span>: <span class="hljs-string">"ECMS"</span>
+    },
+    <span class="hljs-attr">"支払方法"</span>: {
+        <span class="hljs-attr">"13"</span>: <span class="hljs-string">"クレジットカード"</span>,
+        <span class="hljs-attr">"14"</span>: <span class="hljs-string">"代金引換"</span>,
+        <span class="hljs-attr">"15"</span>: <span class="hljs-string">"銀行振り込み"</span>,
+        <span class="hljs-attr">"16"</span>: <span class="hljs-string">"NP後払い"</span>,
+        <span class="hljs-attr">"17"</span>: <span class="hljs-string">"NP後払いwiz"</span>,
+        <span class="hljs-attr">"18"</span>: <span class="hljs-string">"電算システム"</span>,
+        <span class="hljs-attr">"19"</span>: <span class="hljs-string">"クロネコ代金後払い"</span>,
+        <span class="hljs-attr">"20"</span>: <span class="hljs-string">"クロネコ代金後払い同梱"</span>,
+        <span class="hljs-attr">"21"</span>: <span class="hljs-string">"GMO後払い"</span>,
+        <span class="hljs-attr">"22"</span>: <span class="hljs-string">"GMO後払い同梱"</span>,
+        <span class="hljs-attr">"23"</span>: <span class="hljs-string">"スコア後払い"</span>,
+        <span class="hljs-attr">"24"</span>: <span class="hljs-string">"スコア後払い同梱"</span>,
+        <span class="hljs-attr">"25"</span>: <span class="hljs-string">"後払いドットコム"</span>,
+        <span class="hljs-attr">"26"</span>: <span class="hljs-string">"後払いドットコム同梱"</span>,
+        <span class="hljs-attr">"27"</span>: <span class="hljs-string">"その他発払い"</span>,
+        <span class="hljs-attr">"28"</span>: <span class="hljs-string">"その他着払い"</span>,
+        <span class="hljs-attr">"37"</span>: <span class="hljs-string">"郵便振替"</span>,
+        <span class="hljs-attr">"38"</span>: <span class="hljs-string">"auかんたん決済"</span>,
+        <span class="hljs-attr">"39"</span>: <span class="hljs-string">"まとめてau支払い"</span>,
+        <span class="hljs-attr">"40"</span>: <span class="hljs-string">"AmazonPay"</span>,
+        <span class="hljs-attr">"41"</span>: <span class="hljs-string">"Apple Pay"</span>,
+        <span class="hljs-attr">"42"</span>: <span class="hljs-string">"請求書払い"</span>,
+        <span class="hljs-attr">"43"</span>: <span class="hljs-string">"掛売"</span>
+    },
+    <span class="hljs-attr">"返品理由"</span>: {
+        <span class="hljs-attr">"1"</span>: <span class="hljs-string">"受取拒否"</span>,
+        <span class="hljs-attr">"10"</span>: <span class="hljs-string">"理由不明"</span>,
+        <span class="hljs-attr">"11"</span>: <span class="hljs-string">"色味相違"</span>,
+        <span class="hljs-attr">"12"</span>: <span class="hljs-string">"素材相違"</span>,
+        <span class="hljs-attr">"13"</span>: <span class="hljs-string">"その他"</span>,
+        <span class="hljs-attr">"2"</span>: <span class="hljs-string">"引取依頼"</span>,
+        <span class="hljs-attr">"3"</span>: <span class="hljs-string">"誤発送"</span>,
+        <span class="hljs-attr">"4"</span>: <span class="hljs-string">"商品不良"</span>,
+        <span class="hljs-attr">"5"</span>: <span class="hljs-string">"配達中止"</span>,
+        <span class="hljs-attr">"6"</span>: <span class="hljs-string">"サイズが合わない"</span>,
+        <span class="hljs-attr">"7"</span>: <span class="hljs-string">"イメージ違い"</span>,
+        <span class="hljs-attr">"8"</span>: <span class="hljs-string">"長期不在"</span>,
+        <span class="hljs-attr">"9"</span>: <span class="hljs-string">"住所不明"</span>
+    }
+}
+</div></code></pre>
+<h3 id="1-3-%E9%9A%8E%E5%B1%A4%E3%83%87%E3%83%BC%E3%82%BF">1-3. 階層データ</h3>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"配送方法"</span>: {
+    <span class="hljs-attr">"クレジットカード"</span>: [
+      <span class="hljs-string">"クレジットカード"</span>,
+      <span class="hljs-string">"掛売"</span>
+    ],
+    <span class="hljs-attr">"電子決済"</span>: [
+      <span class="hljs-string">"auかんたん決済"</span>,
+      <span class="hljs-string">"まとめてau支払い"</span>,
+      <span class="hljs-string">"AmazonPay"</span>,
+      <span class="hljs-string">"Apple Pay"</span>
+    ],
+    <span class="hljs-attr">"前払い"</span>: [
+      <span class="hljs-string">"その他発払い"</span>
+    ],
+    <span class="hljs-attr">"後払い"</span>: [
+      <span class="hljs-string">"NP後払い"</span>,
+      <span class="hljs-string">"NP後払いwiz"</span>,
+      <span class="hljs-string">"クロネコ代金後払い"</span>,
+      <span class="hljs-string">"クロネコ代金後払い同梱"</span>,
+      <span class="hljs-string">"GMO後払い"</span>,
+      <span class="hljs-string">"GMO後払い同梱"</span>,
+      <span class="hljs-string">"スコア後払い"</span>,
+      <span class="hljs-string">"スコア後払い同梱"</span>,
+      <span class="hljs-string">"後払いドットコム"</span>,
+      <span class="hljs-string">"後払いドットコム同梱"</span>,
+      <span class="hljs-string">"電算システム"</span>
+    ],
+    <span class="hljs-attr">"振込・振替"</span>: [
+      <span class="hljs-string">"銀行振り込み"</span>,
+      <span class="hljs-string">"郵便振替"</span>,
+      <span class="hljs-string">"請求書払い"</span>
+    ],
+    <span class="hljs-attr">"現金"</span>: [
+      <span class="hljs-string">"その他着払い"</span>,
+      <span class="hljs-string">"代金引換"</span>
+    ]
+  }
+}
+</div></code></pre>
+<h3 id="1-4-%E5%AE%9F%E4%BD%93%E9%96%A2%E9%80%A3%E5%9B%B3">1-4. 実体関連図</h3>
+<p><img src="./erd_ro.png" alt="ERD"></p>
+<h2 id="2-%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">2. 変数の定義</h2>
+<h3 id="2-1-%E3%83%87%E3%83%BC%E3%82%BF%E6%9C%9F%E9%96%93">2-1. データ期間</h3>
 <ul>
-<li>同一返品IDで複数のデータが存在する</li>
-<li>同一の返品IDを持つデータの請求金額、送料には全て同じデータが含まれる
+<li>注文データは出荷日、返品データは返品登録日、入荷データは入荷日が基準</li>
+<li>ある月の返品データは、その月より過去の月の注文分を含む</li>
+</ul>
+<h3 id="2-2-%E5%95%86%E5%93%81%E5%90%8D">2-2. 商品名</h3>
 <ul>
-<li>そのまま集計すると重複する</li>
+<li>単価が0でない、品番と一意に一致する商品名</li>
 </ul>
-</li>
-<li>別注文番号のものをまとめて返品すると、返品IDは別のものになる</li>
-<li>返品データは単価を持たず、同一注文番号の商品の一部を返品しても全額のデータしかない
+<h3 id="2-3-%E5%95%86%E5%93%81%E5%A3%B2%E4%B8%8A">2-3. 商品売上</h3>
 <ul>
-<li>そのまま集計すると返金額が多くなる</li>
+<li>単価 × 数量</li>
 </ul>
-</li>
-<li>注文番号で注文データと関連付け可能</li>
-<li>数量の項目はあるが、注文番号+品番はユニークなデータでない</li>
-<li>注文番号や商品名などが完全に重複するデータが存在する
+<h3 id="2-3-%E5%A3%B2%E4%B8%8A%E9%87%91%E3%83%BB%E8%B3%BC%E5%85%A5%E9%87%91%E9%A1%8D%E3%83%BB%E8%AB%8B%E6%B1%82%E9%87%91%E9%A1%8D">2-3. 売上金・購入金額・請求金額</h3>
 <ul>
-<li>完全に重複するデータはそのままでは集計されない</li>
+<li>(単価 × 数量) + 商品消費税 + 送料 + 手数料 + 調整金 + サービス消費税</li>
+<li><strong>同一注文番号に同じ品番のデータが含まれる場合、数量は合計、単価は平均を取ったものになる</strong></li>
+<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
 </ul>
-</li>
-<li>対応する注文データにない商品を返品しているデータが存在する</li>
+<h3 id="2-4-%E3%82%A8%E3%83%AA%E3%82%A2">2-4. エリア</h3>
+<ul>
+<li>送付先都道府県</li>
+<li>顧客の住所は引っ越しで変わるなどの理由で送付先を利用</li>
 </ul>
-</li>
+<h3 id="2-5-%E6%B3%A8%E6%96%87%E6%95%B0">2-5. 注文数</h3>
+<ul>
+<li>ユニークな注文番号の数</li>
 </ul>
-<h2 id="%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">加工処理</h2>
+<h3 id="2-6-%E9%A1%A7%E5%AE%A2%E6%95%B0">2-6. 顧客数</h3>
+<ul>
+<li>ユニークな顧客番号の数</li>
+</ul>
+<h3 id="2-7-%E7%B4%AF%E8%A8%88%E8%B3%BC%E5%85%A5%E9%87%91%E9%A1%8D">2-7. 累計購入金額</h3>
+<ul>
+<li>期間内で、顧客一人あたりの平均で、累計の購入金額</li>
+<li>全データ表示状態ではLTVと等しい</li>
+</ul>
+<h3 id="2-8-abc%E5%88%86%E6%9E%90">2-8. ABC分析</h3>
+<ul>
+<li>商品をAランク(売れ筋)、Bランク(中堅)、Cランク(死に筋)の3つに分類する</li>
+<li>商品ごとに、商品売上を降順ソートし、累積売り上げを求めたときの、70%までがAランク、95%までがBランク、残りがCランクとなる</li>
+<li>セット商品など、商品売上が正しく入力されていない商品では機能しない</li>
+</ul>
+<h3 id="2-9-%E3%83%AA%E3%83%94%E3%83%BC%E3%83%88%E6%95%B0">2-9. リピート数</h3>
+<ul>
+<li>同じ顧客番号を持つ別注文番号の数</li>
+<li>購入回数nのリピート数がR(n-1)となる</li>
+</ul>
+<h3 id="2-10-%E7%B6%99%E7%B6%9A%E7%8E%87">2-10. 継続率</h3>
+<ul>
+<li>n/(n-1)で表される、前回購入した人のうちどれだけが次回も購入したかを表す値</li>
+<li>実際に離脱したり、最近の購入者が増えると継続率の数値が下がる</li>
+</ul>
+<h3 id="2-11-%E8%B3%BC%E5%85%A5%E6%97%A5">2-11. 購入日</h3>
+<ul>
+<li>元データが持っている粒度で、秒未満切り捨て</li>
+</ul>
+<h3 id="2-12-%E8%BF%94%E5%93%81%E6%95%B0%E3%83%BB%E8%BF%94%E5%93%81%E4%BB%B6%E6%95%B0">2-12. 返品数・返品件数</h3>
+<ul>
+<li><strong>注文日が返品データと同期間に存在する</strong>、ユニークな返品IDの数</li>
+<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
+<li>同一注文を複数に分けて返品した場合、分割された返品数</li>
+</ul>
+<h3 id="2-13-%E8%BF%94%E5%93%81%E7%8E%87">2-13. 返品率</h3>
+<ul>
+<li>返品IDに紐づいた注文数(≠返品件数) / 注文数</li>
+<li>同一注文を複数に分けて返品した場合、分子は重複しない</li>
+<li>ある月の注文数に対する返品数は、今後返品される分を含まないため、直近のデータは低く出る</li>
+</ul>
+<h3 id="2-14-%E8%BF%94%E5%93%81%E9%87%91%E9%A1%8D">2-14. 返品金額</h3>
+<ul>
+<li><strong>注文日が返品データと同期間に存在する</strong>、返品IDを持つ注文番号の売上金</li>
+<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
+<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
+<li><strong>注文の一部しか返品されなかった場合も、返品額は注文の全額</strong></li>
+<li>同一注文を複数に分けて返品した場合は、重複しない</li>
+</ul>
+<h3 id="2-15-%E8%BF%94%E5%93%81%E3%82%B3%E3%82%B9%E3%83%88">2-15. 返品コスト</h3>
+<ul>
+<li>返品着払い送料</li>
+</ul>
+<h3 id="2-16-%E5%9C%A8%E5%BA%AB%E5%A2%97%E6%B8%9B">2-16. 在庫増減</h3>
+<ul>
+<li>入荷数 - 出荷数 + 返品数</li>
+</ul>
+<h2 id="3-%E5%8A%A0%E5%B7%A5%E5%87%A6%E7%90%86">3. 加工処理</h2>
 <ul>
 <li>正規化処理
 <ul>
 <li><strong><a href="#%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</a>のデータ型に従い、keyのないデータを破棄する</strong></li>
 <li>strのデータ欠損は空白文字列で埋める</li>
-<li>dateのデータは標準日付フォーマット[YYYY-MM-DD HH:mm:ss]に変換する(時刻欠落の場合は0埋め)</li>
-</ul>
-</li>
-<li>データマッピング
-<ul>
-<li>以下のデータはIDと対応する名前で紐づける
-<ul>
-<li>品番-品名</li>
-<li>都道府県コード - 都道府県名 - エリアマップ</li>
-<li>配送方法ID - 配送方法</li>
-<li>支払方法ID - 支払方法</li>
-<li>商品カテゴリ - 商品カテゴリ名</li>
-<li>返品理由 - 返品理由名</li>
-</ul>
-</li>
-<li>品名以外のマッピングはECロボ固有の固定マップ
-<ul>
-<li>独自項目は追加設定</li>
-</ul>
-</li>
-<li>品名は自動抽出したものをベースとする
-<ul>
-<li>IDが重複するものは、最初に読み込まれたデータを対応させる</li>
-<li>望ましくないマッピングは修正する</li>
-</ul>
-</li>
+<li>datetimeのデータは標準日付フォーマット[YYYY-MM-DD HH:mm:ss]に変換する(時刻欠落の場合は0埋め)</li>
 </ul>
 </li>
 <li>クレンジング
@@ -967,7 +1348,7 @@ body .task-list-item input {
 <li>請求金額から商品代金、商品消費税、サービス料、サービス消費税を差し引いた額を調整金とする</li>
 <li>注文ごとに固有の情報を注文明細とする
 <ul>
-<li>{∄!注文番号・注文日時・送付先・配送方法・支払方法・顧客番号・送料・手数料・調整金・サービス料・サービス消費税}</li>
+<li>{∄!注文番号・出荷日・送付先・配送方法・支払方法・顧客番号・送料・手数料・調整金・サービス料・サービス消費税}</li>
 </ul>
 </li>
 <li><strong>単価と数量が0のデータを除外する</strong>
@@ -983,7 +1364,7 @@ body .task-list-item input {
 </li>
 <li>同一年月のデータと結合する
 <ul>
-<li>注文番号、または注文番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
+<li>注文番号、または注文番号+品番をハッシュ化し、同一のindexを持つデータは新しいデータで上書きする</li>
 </ul>
 </li>
 </ul>
@@ -1015,274 +1396,12 @@ body .task-list-item input {
 </ul>
 </li>
 <li>同一年月のデータと結合する<br>
-*返品番号、または返品番号+品番をハッシュ化<a href="#%E8%A3%9C%E8%B6%B31">(*1)</a>し、同一のindexを持つデータは新しいデータで上書きする</li>
+*返品番号、または返品番号+品番をハッシュ化し、同一のindexを持つデータは新しいデータで上書きする</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="%E5%A4%89%E6%95%B0%E3%81%AE%E5%AE%9A%E7%BE%A9">変数の定義</h2>
-<ul>
-<li>データ期間:
-<ul>
-<li>注文データは出荷日、返品データは返品登録日が基準</li>
-<li>ある月の返品データは、その月より過去の月の注文分を含む</li>
-</ul>
-</li>
-<li>商品名:
-<ul>
-<li>単価が0でない、品番と一意に一致する商品名</li>
-<li><strong>品番に重複がある場合、同品番で最初に読み込まれた商品名をベースに調整</strong></li>
-</ul>
-</li>
-<li>商品売上:
-<ul>
-<li>単価 × 数量</li>
-</ul>
-</li>
-<li>売上金・購入金額・請求金額:
-<ul>
-<li>(単価 × 数量) + 商品消費税 + 送料 + 手数料 + 調整金 + サービス消費税</li>
-<li><strong>同一注文番号に同じ品番のデータが含まれる場合、数量は合計、単価は平均を取ったものになる</strong></li>
-<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
-<li>原価はデータなし</li>
-</ul>
-</li>
-<li>エリア別売上:
-<ul>
-<li>送付先都道府県ごとの売上合計</li>
-<li>顧客の住所は引っ越しで変わるなどの理由で送付先を利用</li>
-</ul>
-</li>
-<li>注文数:
-<ul>
-<li>ユニークな注文番号の数</li>
-</ul>
-</li>
-<li>顧客数:
-<ul>
-<li>ユニークな顧客番号の数</li>
-</ul>
-</li>
-<li>LTV:
-<ul>
-<li>顧客ごとの平均購入金額[円/日]×顧客ごと在籍日数[日]</li>
-<li>顧客一人が離脱するまでに平均でいくら購入するかを表す</li>
-</ul>
-</li>
-<li>在籍日数:
-<ul>
-<li>全顧客のデータ内最新日 – 集計期間に購入履歴のある顧客ごとデータ内で最古の購入日</li>
-</ul>
-</li>
-<li>リピート数:
-<ul>
-<li>同じ顧客番号を持つ別注文番号の数</li>
-</ul>
-</li>
-<li>継続率:
-<ul>
-<li>n/n-1で表される、前回購入した人のうちどれだけが次回も購入したかを表す値</li>
-<li>実際に離脱したり、最近の購入者が増えると継続率の数値が下がる</li>
-</ul>
-</li>
-<li>購入日:
-<ul>
-<li>元データが持っている粒度で、秒未満切り捨て</li>
-</ul>
-</li>
-<li>返品数・返品件数:
-<ul>
-<li><strong>注文日が返品データと同期間に存在する</strong>、ユニークな返品IDの数</li>
-<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
-<li>同一注文を複数に分けて返品した場合、分割された返品数</li>
-</ul>
-</li>
-<li>返品率:
-<ul>
-<li>返品IDに紐づいた注文数(≠返品件数) / 注文数</li>
-<li>同一注文を複数に分けて返品した場合、分子は重複しない</li>
-<li>ある月の注文数に対する返品数は、今後返品される分を含まないため、直近のデータは低く出る</li>
-</ul>
-</li>
-<li>返品金額:
-<ul>
-<li><strong>注文日が返品データと同期間に存在する</strong>、返品IDを持つ注文番号の売上金</li>
-<li>最も古い返品申請日より注文日が前のデータと、未来の返品データは含まれない</li>
-<li>商品名でフィルタリングしたときは、商品価格+その商品を含む注文のサービス価格</li>
-<li><strong>注文の一部しか返品されなかった場合も、返品額は注文の全額</strong></li>
-<li>同一注文を複数に分けて返品した場合は、重複しない</li>
-</ul>
-</li>
-<li>返品コスト:
-<ul>
-<li>返品着払い送料</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E5%85%A5%E5%8A%9B%E3%83%87%E3%83%BC%E3%82%BF">入力データ</h2>
-<ul>
-<li>カラム名全て必須</li>
-<li>データ型
-<ul>
-<li>date: 日付データ</li>
-<li>key: 必須文字列データ</li>
-<li>str: 文字列データ</li>
-<li>int: 数値データ</li>
-</ul>
-</li>
-</ul>
-<pre class="hljs"><code><div>{
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"v2.0.1"</span>,
-  <span class="hljs-attr">"required"</span>: {
-    <span class="hljs-attr">"orders"</span>: {
-      <span class="hljs-attr">"注文番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"顧客番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"customer_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"出荷日"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"date"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
-      },
-      <span class="hljs-attr">"送付先住所1"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"prefecture_name"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"配送方法ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"delivery_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"支払方法ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"payment_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"品番(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"カテゴリ"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_name"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"請求金額"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"billing"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"送料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"shipping"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"手数料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"fee"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"消費税"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"tax"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"単価(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"price"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"数量(明細)"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"amount"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-    },
-    <span class="hljs-attr">"returns"</span>: {
-      <span class="hljs-attr">"返品ID"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"注文番号"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"order_id"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"key"</span>
-      },
-      <span class="hljs-attr">"返品登録日時"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_date"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"date"</span>
-      },
-      <span class="hljs-attr">"返品在庫コード"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"カテゴリ"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"category_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"返品理由"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"complain_code"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-      },
-      <span class="hljs-attr">"返品数"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_amount"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      },
-      <span class="hljs-attr">"返品着払送料"</span>: {
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_cost"</span>,
-        <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-      }
-    },
-    <span class="hljs-attr">"optional"</span>: {
-      <span class="hljs-attr">"orders"</span>: {
-        <span class="hljs-attr">"品名(明細)"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"ポイント残"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"point"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"使用ポイント"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"use_point"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"同梱物点数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bundled"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"作業点数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"workload"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"注文回数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"purchase"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        },
-        <span class="hljs-attr">"定期注文回数"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"subscript"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"num"</span>
-        }
-      },
-      <span class="hljs-attr">"returns"</span>: {
-        <span class="hljs-attr">"商品名"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"item_name"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"返品配送方法"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_delivery_code"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        },
-        <span class="hljs-attr">"返品状態区分"</span>: {
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"return_condition_code"</span>,
-          <span class="hljs-attr">"types"</span>: <span class="hljs-string">"str"</span>
-        }
-      }
-    }
-  }
-</div></code></pre>
-<h2 id="%E8%A3%9C%E8%B6%B3">補足</h2>
-<h3 id="%E8%A3%9C%E8%B6%B31">補足1</h3>
-<p>ECロボ利用企業の1か月分の実データのレコード数が約80,000、余裕を見て1,000,000<br>
-実際には1か月分が衝突しなければ問題ないが、余裕を見て12か月×20年を想定<br>
-ハッシュ値がNビットのハッシュ値が衝突する試行回数の期待値は、2^(N/2)であるため<br>
-2^(N/2) = 1000000 × 12 × 20<br>
-N ≒ 56<br>
-よって16進数で14文字のハッシュ値に変換する</p>
 
 </body>
 </html>
